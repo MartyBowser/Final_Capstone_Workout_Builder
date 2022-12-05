@@ -5,7 +5,31 @@
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
-      <label for="username" class="sr-only">Username</label>
+      
+      <input
+        type="test"
+        id="first-name"
+        class="form-control"
+        placeholder="First Name"
+        v-model="user.fastName"
+        required
+      />
+      <input
+        type="test"
+        id="last-name"
+        class="form-control"
+        placeholder="Last Name"
+        v-model="user.lastName"
+        required
+      />
+      <input
+        type="test"
+        id="email"
+        class="form-control"
+        placeholder="email"
+        v-model="user.email"
+        required
+      />
       <input
         type="text"
         id="username"
@@ -15,7 +39,7 @@
         required
         autofocus
       />
-      <label for="password" class="sr-only">Password</label>
+     
       <input
         type="password"
         id="password"
@@ -32,10 +56,12 @@
         v-model="user.confirmPassword"
         required
       />
-      <router-link :to="{ name: 'login' }">Have an account?</router-link>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">
+      
+      <button class="form-button" type="submit">
         Create Account
       </button>
+
+      <router-link :to="{ name: 'login' }">Have an account?</router-link>
     </form>
   </div>
 </template>
