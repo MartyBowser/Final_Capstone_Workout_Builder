@@ -1,14 +1,21 @@
 <template>
   <div class="home">
-    <h1>Welcome Back!</h1>
+    <h1>Hi {{$store.state.user.firstName}} </h1>
     <p>New Workout</p>
     <p>History/Progress</p>
     <p>Not sure what to do? Connect with one of our many trainers here.</p>
+     <button class="form-button" v-on:click="createExercise">
+        Create Exercise
+      </button>
   </div>
 </template>
 
 <script>
 export default {
-  name: "home"
+  name: "home",
+  methods: {createExercise()
+  {this.$router.push('/exercise')}
+  }
+
 };
 </script>

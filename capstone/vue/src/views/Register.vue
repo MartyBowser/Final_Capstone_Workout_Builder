@@ -11,7 +11,7 @@
         id="first-name"
         class="form-control"
         placeholder="First Name"
-        v-model="user.fastName"
+        v-model="user.firstName"
         required
       />
       <input
