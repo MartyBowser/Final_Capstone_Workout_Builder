@@ -26,7 +26,7 @@ CREATE TABLE exercise (
     exercise_id SERIAL,
     body_group_id int NOT NULL,
     exercise_name varchar (100) NOT NULL UNIQUE,
-    description varchar TEXT NOT NULL,
+    description varchar (500) NOT NULL,
     CONSTRAINT PK_exercise PRIMARY KEY (exercise_id),
     CONSTRAINT FK_exercise_body_group FOREIGN KEY (body_group_id) REFERENCES body_group (body_group_id)
 );
