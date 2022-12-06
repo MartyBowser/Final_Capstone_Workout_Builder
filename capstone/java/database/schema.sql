@@ -40,7 +40,8 @@ CREATE TABLE workout (
     reps int NOT NULL,
     duration int NOT NULL,
     CONSTRAINT pk_workout PRIMARY KEY (workout_id),
-    CONSTRAINT FK_workout_exercise FOREIGN KEY (body_group_id) REFERENCES exercise (body_group_id)
+    CONSTRAINT FK_workout_body_group FOREIGN KEY (body_group_id) REFERENCES body_group (body_group_id),
+    CONSTRAINT FK_workout_exercise FOREIGN KEY (exercise_id) REFERENCES exercise (exercise_id)
 );
 CREATE TABLE workout_exercise (
     workout_id int NOT NULL,
@@ -54,6 +55,7 @@ CREATE TABLE workout_history (
     workout_id int NOT NULL,
     user_id int NOT NULL,
     duration int NOT NULL,
+    workout_date date NOT NULL,
     CONSTRAINT PK_workout_history PRIMARY KEY (workout_history_id),
     CONSTRAINT FK_workout_history_workout FOREIGN KEY (workout_id) REFERENCES workout (workout_id),
     CONSTRAINT FK_workout_history_users FOREIGN KEY (user_id) REFERENCES users (user_id)

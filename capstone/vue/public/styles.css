@@ -3,6 +3,18 @@
     padding: 8% 0 0;
     margin: auto;
   }
+  .form-signin a{
+    margin: 15px 0 0;
+    color: #b3b3b3;
+    font-size: 15px;
+  }
+  .have-an-account a {
+    margin: auto;
+    color: white;
+    font-size: 15px;
+    display: block;
+    text-align: center;
+  }
   .form-signin {
     position: relative;
     z-index: 1;
@@ -107,4 +119,7 @@
   .home {
       color: white;
       font-family: "Roboto", sans-serif;
+  }
+  #nav a {
+    color: white;
   }
