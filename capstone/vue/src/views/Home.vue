@@ -17,13 +17,20 @@
 export default {
   name: "home",
   methods: {createExercise()
-  {this.$router.push('/exercise')},
+  {this.$router.push('/exercise')
+  },
   addTrainer(){
     this.$router.push('/addtrainer')
     
 
   },
+  isUser(){
+    if(this.$state.user.role==="user")
+    {return 0 }
+    else{
+      return 1}
+    },
   }
-
+  
 };
 </script>

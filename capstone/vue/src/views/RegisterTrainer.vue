@@ -60,8 +60,6 @@
       <button class="form-button" type="submit">
         SUBMIT
       </button>
-
-      <div class = "have-an-account"> <router-link :to="{ name: 'login' }"><a> Have an account? </a> </router-link> </div>
     </form>
   </div>
 </template>
