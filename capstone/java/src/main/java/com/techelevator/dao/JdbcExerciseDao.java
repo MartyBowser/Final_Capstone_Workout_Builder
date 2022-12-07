@@ -72,7 +72,7 @@ public class JdbcExerciseDao implements ExerciseDao {
 
     @Override
     public boolean create(String exerciseName, String description, int bodyGroupId) {
-        String insertUserSql = "insert into exercise (exerciseName,description,bodyGroupId) values (?,?,?)";
+        String insertUserSql = "insert into exercise (exercise_name,description,body_group_id) values (?,?,?)";
 
         return jdbcTemplate.update(insertUserSql, exerciseName, description, bodyGroupId) == 1;
     }

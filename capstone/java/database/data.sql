@@ -31,7 +31,7 @@ VALUES ('2', 'Reverse Flyes', 'Lay on your chest and lift the dumbbells up to yo
 INSERT INTO exercise (body_group_id, exercise_name, description)
 VALUES ('3', 'Squats', 'Crouch down and then stand back up');
 INSERT INTO exercise (body_group_id, exercise_name, description)
-VALUES ('3', 'Lunges', 'Pretend you're walking forward in a silly way but then step back');
+VALUES ('3', 'Lunges', 'Pretend you''re walking forward in a silly way but then step back');
 
 INSERT INTO exercise (body_group_id, exercise_name, description)
 VALUES ('4', 'Curls', 'Hold something heavy and pump those biceps');

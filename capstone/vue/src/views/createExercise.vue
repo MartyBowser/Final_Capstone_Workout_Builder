@@ -26,8 +26,8 @@
 
 
       
-      <select  required  class="form-control" v-model="exercise.body_group_id">
-<option selected>Select muscle group focus</option>
+      <select  required  class="form-control" v-model="exercise.body_group_id" placeholder="Select muscle group">
+<option selected value="0">Select muscle group focus</option>
 
     <option value="1">Cardio</option>
     <option value="2">Back</option>
@@ -53,7 +53,7 @@ name: 'createExercise',
   data() {
     return {
       exercise: {
-        body_group_id: '',
+        body_group_id: '0',
         exercise_name: '',
         description: '',
      },
