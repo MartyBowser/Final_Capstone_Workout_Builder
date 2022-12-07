@@ -38,7 +38,7 @@
      
       
       <button class="form-button" type="submit">
-        Create Exercise
+        Submit
       </button>
         
       <div class = "have-an-account"> <router-link :to="{ name: 'home' }"><a> Go Back </a> </router-link> </div>
