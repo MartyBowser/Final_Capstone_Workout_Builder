@@ -4,16 +4,17 @@
     <p>New Workout</p>
     <p>History/Progress</p>
     <p>Not sure what to do? Connect with one of our many trainers here.</p>
-     <button class="form-button" v-on:click="createExercise">
+     <button v-show="isUser" class="form-button" v-on:click="createExercise">
         Create Exercise
       </button>
-      <button class="form-button" v-on:click="addTrainer">
+      <button v-show="isUser" class="form-button" v-on:click="addTrainer">
         Add Trainer
       </button>
   </div>
 </template>
 
 <script>
+
 export default {
   name: "home",
   methods: {createExercise()
@@ -23,13 +24,17 @@ export default {
     this.$router.push('/addtrainer')
     
 
+  }
+  
   },
-  isUser(){
-    if(this.$state.user.role==="user")
-    {return 0 }
+  computed:
+  {
+isUser(){
+    if(this.$store.state.user.authorities[0].name==="ROLE_USER")
+    {return false }
     else{
-      return 1}
-    },
+      return true}
+    }
   }
   
 };
