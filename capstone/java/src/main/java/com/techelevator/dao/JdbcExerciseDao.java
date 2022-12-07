@@ -1,6 +1,6 @@
 package com.techelevator.dao;
 
-import com.techelevator.model.User;
+import com.techelevator.model.Exercise;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -12,83 +12,77 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 @Component
-public class JdbcExerciseDao {
+public class JdbcExerciseDao implements ExerciseDao {
     private final JdbcTemplate jdbcTemplate;
 
-    public JdbcUserDao(JdbcTemplate jdbcTemplate) {
+    public JdbcExerciseDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
     @Override
-    public int findIdByUsername(String username) {
-        if (username == null) throw new IllegalArgumentException("Username cannot be null");
+    public int findIdByExerciseName(String exerciseName) {
+        if (exerciseName == null) throw new IllegalArgumentException("Exercise name cannot be null");
 
-        int userId;
+        int exerciseId;
         try {
-            userId = jdbcTemplate.queryForObject("select user_id from users where username = ?", int.class, username);
+            exerciseId = jdbcTemplate.queryForObject("select exercise_id from exercise where exercise_name = ?", int.class, exerciseName);
         } catch (EmptyResultDataAccessException e) {
-            throw new UsernameNotFoundException("User " + username + " was not found.");
+            throw new UsernameNotFoundException("Exercise " + exerciseName + " was not found.");
         }
 
-        return userId;
+        return exerciseId;
     }
 
     @Override
-    public User getUserById(int userId) {
-        String sql = "SELECT * FROM users WHERE user_id = ?";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
+    public Exercise getExerciseById(int exerciseId) {
+        String sql = "SELECT * FROM exercise WHERE exercise_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, exerciseId);
         if (results.next()) {
-            return mapRowToUser(results);
+            return mapRowToExercise(results);
         } else {
             return null;
         }
     }
 
     @Override
-    public List<User> findAll() {
-        List<User> users = new ArrayList<>();
-        String sql = "select * from users";
+    public List<Exercise> findAll() {
+        List<Exercise> exercises = new ArrayList<>();
+        String sql = "select * from exercise";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while (results.next()) {
-            User user = mapRowToUser(results);
-            users.add(user);
+            Exercise exercise = mapRowToExercise(results);
+            exercises.add(exercise);
         }
 
-        return users;
+        return exercises;
     }
 
     @Override
-    public User findByUsername(String username) {
-        if (username == null) throw new IllegalArgumentException("Username cannot be null");
+    public Exercise findExerciseByName(String exerciseName) {
+        if (exerciseName == null) throw new IllegalArgumentException("Exercise name cannot be null");
 
-        for (User user : this.findAll()) {
-            if (user.getUsername().equalsIgnoreCase(username)) {
-                return user;
+        for (Exercise exercise : this.findAll()) {
+            if (exercise.getExerciseName().equalsIgnoreCase(exerciseName)) {
+                return exercise;
             }
         }
-        throw new UsernameNotFoundException("User " + username + " was not found.");
+        throw new UsernameNotFoundException("Exercise " + exerciseName + " was not found.");
     }
 
     @Override
-    public boolean create(String username, String password, String role, String firstName, String lastName, String email) {
-        String insertUserSql = "insert into users (username,password_hash,role,first_name,last_name,email) values (?,?,?,?,?,?)";
-        String password_hash = new BCryptPasswordEncoder().encode(password);
-        String ssRole = role.toUpperCase().startsWith("ROLE_") ? role.toUpperCase() : "ROLE_" + role.toUpperCase();
+    public boolean create(String exerciseName, String description, int bodyGroupId) {
+        String insertUserSql = "insert into exercise (exerciseName,description,bodyGroupId) values (?,?,?)";
 
-        return jdbcTemplate.update(insertUserSql, username, password_hash, ssRole,firstName,lastName,email) == 1;
+        return jdbcTemplate.update(insertUserSql, exerciseName, description, bodyGroupId) == 1;
     }
 
-    private User mapRowToUser(SqlRowSet rs) {
-        User user = new User();
-        user.setId(rs.getInt("user_id"));
-        user.setUsername(rs.getString("username"));
-        user.setPassword(rs.getString("password_hash"));
-        user.setAuthorities(Objects.requireNonNull(rs.getString("role")));
-        user.setFirstName((rs.getString("first_name")));
-        user.setLastName((rs.getString("last_name")));
-        user.setEmail((rs.getString("email")));
-        user.setActivated(true);
-        return user;
+    private Exercise mapRowToExercise(SqlRowSet rs) {
+        Exercise exercise = new Exercise();
+        exercise.setExerciseId(rs.getInt("exercise_id"));
+        exercise.setExerciseName(rs.getString("exercise_name"));
+        exercise.setDescription(rs.getString("description"));
+        exercise.setBodyGroupId(rs.getInt("body_group_id"));
+        return exercise;
     }
 }

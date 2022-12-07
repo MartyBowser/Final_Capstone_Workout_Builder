@@ -1,17 +1,17 @@
 package com.techelevator.dao;
 
-import com.techelevator.model.User;
+import com.techelevator.model.Exercise;
 
 import java.util.List;
 
 public interface ExerciseDao {
-    List<User> findAll();
+    List<Exercise> findAll();
 
-    User getUserById(int userId);
+    Exercise getExerciseById(int exerciseId);
 
-    User findByUsername(String username);
+    Exercise findExerciseByName(String exerciseName);
 
-    int findIdByUsername(String username);
+    int findIdByExerciseName(String exerciseName);
 
-    boolean create(String username, String password, String role, String firstName, String lastName, String email);
+    boolean create(String exerciseName, String description, int bodyGroupId);
 }

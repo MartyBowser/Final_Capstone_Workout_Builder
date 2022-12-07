@@ -2,6 +2,7 @@ package com.techelevator.controller;
 
 import javax.validation.Valid;
 
+import com.techelevator.dao.ExerciseDao;
 import com.techelevator.model.*;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -25,11 +26,13 @@ public class AuthenticationController {
     private final TokenProvider tokenProvider;
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
     private UserDao userDao;
+    private ExerciseDao exerciseDao;
 
-    public AuthenticationController(TokenProvider tokenProvider, AuthenticationManagerBuilder authenticationManagerBuilder, UserDao userDao) {
+    public AuthenticationController(TokenProvider tokenProvider, AuthenticationManagerBuilder authenticationManagerBuilder, UserDao userDao, ExerciseDao exerciseDao) {
         this.tokenProvider = tokenProvider;
         this.authenticationManagerBuilder = authenticationManagerBuilder;
         this.userDao = userDao;
+        this.exerciseDao = exerciseDao;
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -57,6 +60,16 @@ public class AuthenticationController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User Already Exists.");
         } catch (UsernameNotFoundException e) {
             userDao.create(newUser.getUsername(),newUser.getPassword(), newUser.getRole(), newUser.getFirstName(), newUser.getLastName(), newUser.getEmail());
+        }
+    }
+
+    @RequestMapping(value = "/exercise", method = RequestMethod.POST)
+    public void createExercise(@Valid @RequestBody Exercise newExercise) {
+        try {
+            Exercise exercise = exerciseDao.findExerciseByName(newExercise.getExerciseName());
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Exercise Already Exists.");
+        } catch (Exception e) {
+            exerciseDao.create(newExercise.getExerciseName(), newExercise.getDescription(), newExercise.getBodyGroupId());
         }
     }
 

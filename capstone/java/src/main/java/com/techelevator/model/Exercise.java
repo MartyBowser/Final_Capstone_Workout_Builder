@@ -6,13 +6,13 @@ public class Exercise {
     private int exerciseId;
     private String exerciseName;
     private String description;
-    private int body_group_id;
+    private int bodyGroupId;
 
-    public Exercise(int exerciseId, String exerciseName, String description, int body_group_id) {
+    public Exercise(int exerciseId, String exerciseName, String description, int bodyGroupId) {
         this.exerciseId = exerciseId;
         this.exerciseName = exerciseName;
         this.description = description;
-        this.body_group_id = body_group_id;
+        this.bodyGroupId = bodyGroupId;
     }
     public Exercise() {
 
@@ -42,12 +42,12 @@ public class Exercise {
         this.description = description;
     }
 
-    public int getBody_group_id() {
-        return body_group_id;
+    public int getBodyGroupId() {
+        return bodyGroupId;
     }
 
-    public void setBody_group_id(int body_group_id) {
-        this.body_group_id = body_group_id;
+    public void setBodyGroupId(int bodyGroupId) {
+        this.bodyGroupId = bodyGroupId;
     }
 
 }
