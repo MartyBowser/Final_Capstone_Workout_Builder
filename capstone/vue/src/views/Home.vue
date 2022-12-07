@@ -3,6 +3,10 @@
     <h1>Hi {{$store.state.user.firstName}} </h1>
     <p>New Workout</p>
     <p>History/Progress</p>
+    <p>Submitted exercises to go here<p>
+      <li v-for="(item, index) in items" v-bind:key="index"> 
+        {{item}} {{index}}
+        </li>
     <p>Not sure what to do? Connect with one of our many trainers here.</p>
      <button v-show="isUser" class="form-button" v-on:click="createExercise">
         Create Exercise
@@ -14,8 +18,12 @@
 </template>
 
 <script>
-
 export default {
+data(){
+  return{
+    items:["1","2"]
+  }
+},
   name: "home",
   methods: {createExercise()
   {this.$router.push('/exercise')
