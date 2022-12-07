@@ -11,22 +11,22 @@
         id="Exercise"
         class="form-control"
         placeholder="Exercise Name"
-        v-model="exercise.exercise_name"
+        v-model="exercise.exerciseName"
         required
       />
       <input
         type="text"
-        id="exercise_description"
+        id="description"
         class="form-control"
         placeholder="Exercise Description"
-        v-model="exercise.exercise_description"
+        v-model="exercise.description"
         required
       />
 
 
 
       
-      <select  required  class="form-control" v-model="exercise.body_group_id" placeholder="Select muscle group">
+      <select  required  class="form-control" v-model="exercise.bodyGroupId" placeholder="Select muscle group">
 <option selected value="0">Select muscle group focus</option>
 
     <option value="1">Cardio</option>
@@ -53,9 +53,9 @@ name: 'createExercise',
   data() {
     return {
       exercise: {
-        body_group_id: '0',
-        exercise_name: '',
+        exerciseName: '',
         description: '',
+         bodyGroupId: '0',
      },
       CreationError: false,
       CreationErrorMsg: 'There were problems create exercise.'
@@ -63,13 +63,15 @@ name: 'createExercise',
   },
   methods: {
     create() {
+     if(this.exercise.bodyGroupId > 0){
+
      
         authService
           .create(this.exercise)
           .then((response) => {
-            if (response.status == 201) {
+            if (response.status == 200) {
               this.$router.push({
-                path: '/exercise',
+                path: '/',
                 query: { registration: 'success' },
               });
             }
@@ -81,12 +83,15 @@ name: 'createExercise',
               this.CreationErrorMsg = 'Bad Request: Validation Errors';
             }
           });
-      
+     }else {alert("Please select a valid body group")}  
     },
     clearErrors() {
       this.CreationError = false;
       this.CreationErrorMsg = 'There were problems creating this exercise.';
     },
+    returnHome(){
+      this.$router.push('/');
+    }
   },
 };
 

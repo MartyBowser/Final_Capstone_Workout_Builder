@@ -6,7 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import createExercise from '../views/createExercise.vue'
-
+import RegisterTrainer from '../views/RegisterTrainer.vue'
 Vue.use(Router)
 
 /**
@@ -62,6 +62,14 @@ const router = new Router({
         requiresAuth: false
       }
     },
+    {
+      path: "/addtrainer",
+      name: "registerTrainer",
+      component: RegisterTrainer,
+      meta: {
+        requiresAuth: false
+      }
+    }
   ]
 })
 

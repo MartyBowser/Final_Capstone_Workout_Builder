@@ -7,6 +7,9 @@
      <button class="form-button" v-on:click="createExercise">
         Create Exercise
       </button>
+      <button class="form-button" v-on:click="addTrainer">
+        Add Trainer
+      </button>
   </div>
 </template>
 
@@ -14,7 +17,12 @@
 export default {
   name: "home",
   methods: {createExercise()
-  {this.$router.push('/exercise')}
+  {this.$router.push('/exercise')},
+  addTrainer(){
+    this.$router.push('/addtrainer')
+    
+
+  },
   }
 
 };

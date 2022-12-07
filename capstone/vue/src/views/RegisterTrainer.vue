@@ -1,7 +1,7 @@
 <template>
   <div id="register" class="text-center">
     <form class="form-register" @submit.prevent="register">
-      <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
+      <h1 class="h3 mb-3 font-weight-normal">Add Trainer</h1>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
@@ -70,14 +70,14 @@
 import authService from '../services/AuthService';
 
 export default {
-  name: 'register',
+  name: 'registerTrainer',
   data() {
     return {
       user: {
         username: '',
         password: '',
         confirmPassword: '',
-        role: 'user',
+        role: 'trainer',
       },
       registrationErrors: false,
       registrationErrorMsg: 'There were problems registering this user.',
@@ -116,4 +116,6 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+
+</style>
