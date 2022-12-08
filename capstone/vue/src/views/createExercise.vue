@@ -56,6 +56,7 @@ name: 'createExercise',
         exerciseName: '',
         description: '',
          bodyGroupId: '0',
+         userId: ''
      },
       CreationError: false,
       CreationErrorMsg: 'There were problems create exercise.'

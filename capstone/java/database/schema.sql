@@ -1,11 +1,13 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS body_group;
-DROP TABLE IF EXISTS exercise;
-DROP TABLE IF EXISTS workout;
-DROP TABLE IF EXISTS workout_exercise;
 DROP TABLE IF EXISTS workout_history;
+DROP TABLE IF EXISTS workout_exercise;
+DROP TABLE IF EXISTS workout;
+DROP TABLE IF EXISTS exercise_users;
+DROP TABLE IF EXISTS exercise;
+DROP TABLE IF EXISTS body_group;
+DROP TABLE IF EXISTS users;
+
 
 CREATE TABLE users (
 	user_id SERIAL,
@@ -27,8 +29,17 @@ CREATE TABLE exercise (
     body_group_id int NOT NULL,
     exercise_name varchar (100) NOT NULL UNIQUE,
     description varchar (500) NOT NULL,
+    user_id int,
     CONSTRAINT PK_exercise PRIMARY KEY (exercise_id),
-    CONSTRAINT FK_exercise_body_group FOREIGN KEY (body_group_id) REFERENCES body_group (body_group_id)
+    CONSTRAINT FK_exercise_body_group FOREIGN KEY (body_group_id) REFERENCES body_group (body_group_id),
+    CONSTRAINT FK_users FOREIGN KEY (user_id) REFERENCES users (user_id)
+);
+CREATE TABLE exercise_users (
+    user_id int NOT NULL,
+    exercise_id int NOT NULL,
+    CONSTRAINT PK_exercise_users PRIMARY KEY (user_id, exercise_id),
+    CONSTRAINT FK_exercise_users_exercise FOREIGN KEY (exercise_id) REFERENCES exercise (exercise_id),
+    CONSTRAINT FK_exercise_users_users FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
 
 CREATE TABLE workout (

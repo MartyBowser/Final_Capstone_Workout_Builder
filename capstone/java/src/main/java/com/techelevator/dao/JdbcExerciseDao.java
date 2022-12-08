@@ -71,10 +71,10 @@ public class JdbcExerciseDao implements ExerciseDao {
     }
 
     @Override
-    public boolean create(String exerciseName, String description, int bodyGroupId) {
-        String insertUserSql = "insert into exercise (exercise_name,description,body_group_id) values (?,?,?)";
+    public boolean create(String exerciseName, String description, int bodyGroupId, int userId) {
+        String insertUserSql = "insert into exercise (exercise_name,description,body_group_id,user_id) values (?,?,?,?)";
 
-        return jdbcTemplate.update(insertUserSql, exerciseName, description, bodyGroupId) == 1;
+        return jdbcTemplate.update(insertUserSql, exerciseName, description, bodyGroupId, userId) == 1;
     }
 
     private Exercise mapRowToExercise(SqlRowSet rs) {
@@ -83,6 +83,7 @@ public class JdbcExerciseDao implements ExerciseDao {
         exercise.setExerciseName(rs.getString("exercise_name"));
         exercise.setDescription(rs.getString("description"));
         exercise.setBodyGroupId(rs.getInt("body_group_id"));
+        exercise.setUserId(rs.getInt("user_id"));
         return exercise;
     }
 }
