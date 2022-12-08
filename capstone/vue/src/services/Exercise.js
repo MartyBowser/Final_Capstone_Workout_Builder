@@ -8,5 +8,9 @@ export default
      listExercise()
      {
        return axios.get('/exercise')
+     },
+
+     edit(exercise) {
+       return axios.put('/exercise', exercise)
      }
 }

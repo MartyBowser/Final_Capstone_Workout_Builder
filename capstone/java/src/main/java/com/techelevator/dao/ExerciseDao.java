@@ -14,4 +14,6 @@ public interface ExerciseDao {
     int findIdByExerciseName(String exerciseName);
 
     boolean create(String exerciseName, String description, int bodyGroupId, int userId);
+
+    public void editExercise(String exerciseName, String description, int bodyGroupId, int exerciseId);
 }

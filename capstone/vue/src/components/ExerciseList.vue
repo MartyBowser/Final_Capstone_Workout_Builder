@@ -1,10 +1,10 @@
 <template>
   <div class="exercise-container">
-      <exercise-card v-for="exercise in $store.state.exercises"
+      <router-link v-bind:to="{name:'exerciseDetail', params:{id:exercise.exerciseId}}" v-for="exercise in $store.state.exercises" v-bind:key="exercise.exerciseId" ><exercise-card 
             v-bind:key="exercise.exerciseId"
             v-bind:exercise="exercise"
 
-      ></exercise-card>
+      ></exercise-card></router-link>
   </div>
 </template>
 
