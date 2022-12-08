@@ -44,5 +44,7 @@ methods:
     flex-wrap: nowrap;
     overflow-x: auto;
    -webkit-overflow-scrolling: touch;
+    padding-left: 200px;
+    margin: 100px;
 }
 </style>
