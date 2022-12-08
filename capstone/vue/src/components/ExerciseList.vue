@@ -24,6 +24,7 @@ export default {
 .exercise-container {
     display:flex;
     justify-content: space-evenly;
-    flex-wrap: wrap;
+    flex-wrap: fixed;
+    
 }
 </style>
