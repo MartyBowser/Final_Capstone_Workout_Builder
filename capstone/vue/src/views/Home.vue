@@ -4,13 +4,12 @@
     <p>New Workout</p>
     <p>History/Progress</p>
     <p>Submitted exercises to go here<p>
-      <li v-for="(item, index) in items" v-bind:key="index"> 
+      <!--<li v-for="(item, index) in items" v-bind:key="index"> 
         {{item}} {{index}}
-        </li>
+        </li>-->
     <p>Not sure what to do? Connect with one of our many trainers here.</p>
 
-    <exercise/>
-    
+    <exercise-list />
      <button v-show="isUser" class="form-button" v-on:click="createExercise">
         Create Exercise
       </button>
@@ -22,14 +21,15 @@
 
 <script>
 
-import Exercise from '../components/Exercise.vue'
+//import Exercise from '../components/Exercise.vue'
+import ExerciseList from '../components/ExerciseList.vue'
 export default {
-  components: { Exercise },
-data(){
+  components: {  ExerciseList },
+/**data(){
   return{
     items:["1","2"]
   }
-},
+},*/
   name: "home",
   methods: {createExercise()
   {this.$router.push('/exercise')
