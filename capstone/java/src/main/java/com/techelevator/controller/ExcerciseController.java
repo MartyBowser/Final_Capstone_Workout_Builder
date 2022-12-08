@@ -44,7 +44,7 @@ public class ExcerciseController {
             Exercise exercise = exerciseDao.findExerciseByName(newExercise.getExerciseName());
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Exercise Already Exists.");
         } catch (Exception e) {
-            exerciseDao.create(newExercise.getExerciseName(), newExercise.getDescription(), newExercise.getBodyGroupId());
+            exerciseDao.create(newExercise.getExerciseName(), newExercise.getDescription(), newExercise.getBodyGroupId(), newExercise.getUserId());
         }
     }
 

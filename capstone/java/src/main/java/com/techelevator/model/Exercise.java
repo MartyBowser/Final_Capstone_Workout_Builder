@@ -7,12 +7,14 @@ public class Exercise {
     private String exerciseName;
     private String description;
     private int bodyGroupId;
+    private int userId;
 
-    public Exercise(int exerciseId, String exerciseName, String description, int bodyGroupId) {
+    public Exercise(int exerciseId, String exerciseName, String description, int bodyGroupId, int userId) {
         this.exerciseId = exerciseId;
         this.exerciseName = exerciseName;
         this.description = description;
         this.bodyGroupId = bodyGroupId;
+        this.userId = userId;
     }
     public Exercise() {
 
@@ -48,6 +50,14 @@ public class Exercise {
 
     public void setBodyGroupId(int bodyGroupId) {
         this.bodyGroupId = bodyGroupId;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
 }
