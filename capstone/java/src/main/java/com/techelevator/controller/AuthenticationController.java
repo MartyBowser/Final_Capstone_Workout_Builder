@@ -72,6 +72,5 @@ public class AuthenticationController {
             exerciseDao.create(newExercise.getExerciseName(), newExercise.getDescription(), newExercise.getBodyGroupId());
         }
     }
-
 }
 

@@ -19,10 +19,14 @@
 
 <script>
 export default {
+  //call backend get exercise list
 data(){
   return{
     items:["1","2"]
   }
+  //authService.getExercises().then(function (response) {
+
+  //  }
 },
   name: "home",
   methods: {createExercise()
@@ -30,8 +34,6 @@ data(){
   },
   addTrainer(){
     this.$router.push('/addtrainer')
-    
-
   }
   
   },
