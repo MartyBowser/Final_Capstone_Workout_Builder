@@ -63,14 +63,7 @@ public class AuthenticationController {
         }
     }
 
-    @RequestMapping(value = "/exercise", method = RequestMethod.POST)
-    public void createExercise(@Valid @RequestBody Exercise newExercise) {
-        try {
-            Exercise exercise = exerciseDao.findExerciseByName(newExercise.getExerciseName());
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Exercise Already Exists.");
-        } catch (Exception e) {
-            exerciseDao.create(newExercise.getExerciseName(), newExercise.getDescription(), newExercise.getBodyGroupId());
-        }
-    }
+
+
 }
 
