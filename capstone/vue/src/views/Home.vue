@@ -8,6 +8,9 @@
         {{item}} {{index}}
         </li>
     <p>Not sure what to do? Connect with one of our many trainers here.</p>
+
+    <exercise/>
+    
      <button v-show="isUser" class="form-button" v-on:click="createExercise">
         Create Exercise
       </button>
@@ -18,7 +21,10 @@
 </template>
 
 <script>
+
+import Exercise from '../components/Exercise.vue'
 export default {
+  components: { Exercise },
 data(){
   return{
     items:["1","2"]

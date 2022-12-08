@@ -9,7 +9,5 @@ export default {
   register(user) {
     return axios.post('/register', user)
   },
-  create(exercise) {
-    return axios.post('/exercise', exercise)
-  },
+  
 }

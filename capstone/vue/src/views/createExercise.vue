@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import authService from '../services/AuthService';
+import exercise from '../services/Exercise.js';
 export default {
 name: 'createExercise',
   data() {
@@ -66,7 +66,7 @@ name: 'createExercise',
      if(this.exercise.bodyGroupId > 0){
 
      
-        authService
+        exercise
           .create(this.exercise)
           .then((response) => {
             if (response.status == 200) {
