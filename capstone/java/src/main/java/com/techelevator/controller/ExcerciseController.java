@@ -56,4 +56,10 @@ public class ExcerciseController {
         return listOfExercise;
     }
 
+    //check if it already exists
+    @RequestMapping(value = "/exercise", method = RequestMethod.PUT)
+    public void editExercise(@Valid @RequestBody Exercise editingExercise) {
+        exerciseDao.editExercise(editingExercise.getExerciseName(), editingExercise.getDescription(), editingExercise.getBodyGroupId(), editingExercise.getExerciseId());
+    }
+
 }

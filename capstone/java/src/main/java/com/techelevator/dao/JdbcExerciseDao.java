@@ -77,6 +77,14 @@ public class JdbcExerciseDao implements ExerciseDao {
         return jdbcTemplate.update(insertUserSql, exerciseName, description, bodyGroupId, userId) == 1;
     }
 
+    @Override
+    public void editExercise(String exerciseName, String description, int bodyGroupId, int exerciseId) {
+        String insertUserSql = "UPDATE exercise SET exercise_name = ?, description = ?, body_group_id = ?\n" +
+                "WHERE exercise_id = ?";
+
+        jdbcTemplate.update(insertUserSql, exerciseName, description, bodyGroupId, exerciseId);
+    }
+
     private Exercise mapRowToExercise(SqlRowSet rs) {
         Exercise exercise = new Exercise();
         exercise.setExerciseId(rs.getInt("exercise_id"));
