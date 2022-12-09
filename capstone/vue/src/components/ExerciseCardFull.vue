@@ -68,7 +68,7 @@ export default {
         exerciseName: '',
         description: '',
          bodyGroupId: '0',
-         userId: ''
+         exerciseId: ''
      },
      showForm: false,
       CreationError: false,
@@ -77,14 +77,14 @@ export default {
   },
   methods: {
       update() {
-          exercise.edit(this.exercise)
+        this.editingExercise.exerciseId = this.exercise.exerciseId
+          exercise.edit(this.editingExercise)
           .then((response) => {
               if (response.status == 200) {
                   this.$router.push({
                       path: '/',
                       query: {edit: 'success'}
                   })
-                  this.getExercises();
               }
           })
       },
