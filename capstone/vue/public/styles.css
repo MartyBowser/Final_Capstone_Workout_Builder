@@ -10,10 +10,11 @@
   }
   .have-an-account a {
     margin: auto;
-    color: white;
+    color: #b3b3b3;
     font-size: 15px;
     display: block;
     text-align: center;
+    margin-top: 1%;
   }
   .form-signin {
     position: relative;
@@ -36,6 +37,17 @@
     box-sizing: border-box;
     font-size: 14px;
   }
+  .welcome{
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+    margin-top: 1%;
+  }
+  .alert alert-success{
+    font-family: "Roboto", sans-serif;
+    color: black;
+    font-size: 10px;
+    margin-bottom: 1%;
+  }
   .form-button {
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
@@ -50,16 +62,110 @@
     transition: all 0.3 ease;
     cursor: pointer;
     outline-color: #f2f2f2;
-    margin-top: 20px;
-    
+    margin-top: 1%;
+  }
+  .form-button-start-workout{
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 50px;
+    background: #4CAF50;
+    width: 30%;
+    border: 10px;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    outline-color: #f2f2f2;
+    margin-right: 5%;
+  }
+  .form-button-start-workout:hover,.form-button:active,.form-button:focus {
+    background: #43A047;
+  }
+  .form-button-history{
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 50px;
+    background: #4CAF50;
+    width: 30%;
+    border: 10px;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    outline-color: #f2f2f2;
+  }
+  .form-button-history:hover,.form-button:active,.form-button:focus {
+    background: #43A047;
+  }
+  .form-button-create-exercise{
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 50px;
+    background: #4CAF50;
+    width: 30%;
+    border: 10px;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    outline-color: #f2f2f2;
+    margin-right: 5%;
 
-
+  }
+  .form-button-create-exercise:hover,.form-button:active,.form-button:focus {
+    background: #43A047;
+  }
+  .form-button-add-trainer{
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 50px;
+    background: #4CAF50;
+    width: 30%;
+    border: 10px;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    outline-color: #f2f2f2;
+  }
+  .form-button-add-trainer:hover,.form-button:active,.form-button:focus {
+    background: #43A047;
+  }
+  .form-button-create-exercise-submit{
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 50px;
+    background: #4CAF50;
+    width: 25%;
+    border: 10px;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    outline-color: #f2f2f2;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 1%;
+  }
+  .form-button-create-exercise-submit:hover,.form-button:active,.form-button:focus {
+    background: #43A047;
   }
   .form-button:hover,.form-button:active,.form-button:focus {
     background: #43A047;
   }
   .mb-3 {
-      color: white;
+      color: #4CAF50;
+      font-family: "Roboto", sans-serif;
   }
   .mb-3-home{
         color: #4CAF50;
@@ -113,6 +219,12 @@
       max-width: 50%;
       padding: 10%;
   }
+  .home-page-logo{
+    max-width: 12%;
+    text-align: center;
+    position: absolute;
+    bottom: 20%;
+  }
   body {
     background: #76b852; /* fallback for old browsers */
     background: rgb(141,194,111);
@@ -127,4 +239,36 @@
   }
   #nav a {
     color: white;
+  }
+  .formCreateExercise{
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 75%;
+    margin: 10% auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+  .add-trainer{
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 75%;
+    margin: 10% auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+  .text-create-exercise{
+    font-size: 14px;
+    color: #4CAF50;
+  }
+  .go-back-home a {
+      margin: auto;
+      color: #b3b3b3;
+      font-size: 15px;
+      display: block;
+      text-align: center;
+      margin-top: 1%;
   }

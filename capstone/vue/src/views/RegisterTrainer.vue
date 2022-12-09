@@ -1,5 +1,5 @@
 <template>
-  <div id="register" class="text-center">
+  <div id="register" class="add-trainer">
     <form class="form-register" @submit.prevent="register">
       <h1 class="h3 mb-3 font-weight-normal">Add Trainer</h1>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
@@ -60,6 +60,7 @@
       <button class="form-button" type="submit">
         SUBMIT
       </button>
+      <div class ="go-back-home"> <router-link :to="{ name: 'home' }"><a> Go Back </a> </router-link> </div>
     </form>
   </div>
 </template>

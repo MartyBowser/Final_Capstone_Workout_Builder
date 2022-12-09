@@ -2,6 +2,7 @@
  <div id="createExercise" class="createExercise">
     <form class="formCreateExercise" @submit.prevent="create">
       <h1 class="h3 mb-3 font-weight-normal">Create Exercise</h1>
+      <p class="text-create-exercise">Create new exercises here and share with your clients.</p>
       <div class="alert alert-danger" role="alert" v-if="CreationError">
         {{ CreationErrorMsg }}
       </div>
@@ -37,7 +38,7 @@
     </select>
      
       
-      <button class="form-button" type="submit">
+      <button class="form-button-create-exercise-submit" type="submit">
         Submit
       </button>
         
