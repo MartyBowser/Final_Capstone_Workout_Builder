@@ -14,7 +14,7 @@ export default
        return axios.put('/exercise', exercise)
      },
 
-     delete(exerciseId) {
+     deleteExercise(exerciseId) {
        return axios.delete(`/exercise/${exerciseId}` )
      }
 }

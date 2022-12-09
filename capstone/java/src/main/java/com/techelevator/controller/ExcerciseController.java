@@ -61,7 +61,7 @@ public class ExcerciseController {
     public void editExercise(@Valid @RequestBody Exercise editingExercise) {
         exerciseDao.editExercise(editingExercise.getExerciseName(), editingExercise.getDescription(), editingExercise.getBodyGroupId(), editingExercise.getExerciseId());
     }
-    @RequestMapping(value = "/exercise/{exerciseId}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/exercise/{exerciseId}", method = RequestMethod.DELETE)
     public void deleteExercise(@PathVariable int exerciseId) {
         exerciseDao.deleteExercise(exerciseId);
     }

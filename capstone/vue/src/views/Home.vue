@@ -8,21 +8,37 @@
     </p>
 
     <!-- the 2 buttons bellow need to route to new workout and to workout history, they are NOT routed yet-->
-    <button v-show="isUser" class="form-button-start-workout" v-on:click="createExercise">
-        Start New Workout
-      </button>
-      <button v-show="isUser" class="form-button-history" v-on:click="createExercise">
+    
+      <button v-show="!isUser" class="form-button-history" v-on:click="createExercise">
         Your Workout History
       </button>
+      
+
     <exercise-list />
+    <div>
+      <p>Please select your focus area and the time for workout</p>
+       <select  required  class="Form-WorkoutTime">
+<option selected value="0">Select Work Length</option>
+
+    <option value="1">15 Minutes</option>
+    <option value="2">30 Minutes</option>
+    <option value="3">45 Minutes</option>
+    <option value="4">60 Minutes</option>
+    </select>
+    <button v-show="!isUser" class="form-button-start-workout" v-on:click="createExercise">
+        Generate Workout
+      </button>
+    </div>
      <button v-show="isUser" class="form-button-create-exercise" v-on:click="createExercise">
         Create Exercise
       </button>
+
+
       <button v-show="isUser" class="form-button-add-trainer" v-on:click="addTrainer">
         Add Trainer
       </button>
 
-      <img class="home-page-logo" src="https://freesvg.org/img/1545424155.png">
+      <!--<img class="home-page-logo" src="https://freesvg.org/img/1545424155.png"> -->
        
   </div>
 </template>

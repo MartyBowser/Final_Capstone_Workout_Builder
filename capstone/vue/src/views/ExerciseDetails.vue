@@ -1,6 +1,7 @@
 <template>
   <div>
       <exercise-card-full v-bind:exercise="exercise" />
+      
   </div>
 </template>
 

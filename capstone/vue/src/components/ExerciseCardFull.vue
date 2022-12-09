@@ -57,7 +57,9 @@
       </select>
 
       <button class="form-button" type="submit">Submit</button>
+      
     </form>
+    <button v-on:click="deleteExercise" class="delete-exercise" >Delete Exercise</button>
   </div>
 </template>
 
@@ -102,19 +104,20 @@ export default {
         
         });
 
-    }
-  },
-
-  delete() {
+    },
+    deleteExercise() {
     this.editingExercise.exerciseId = this.exercise.exerciseId
-    exercise.delete(this.editingExercise).then((response) =>
+    exercise.deleteExercise(this.editingExercise.exerciseId).then((response) =>
     {
-      if(response.status == 202) {
+      if(response.status == 200) {
         this.$router.push('/');
       }
     }
   ) 
   }
+  }
+
+  
     
 
 }

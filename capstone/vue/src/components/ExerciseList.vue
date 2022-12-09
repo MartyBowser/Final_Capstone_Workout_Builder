@@ -1,10 +1,53 @@
 <template>
   <div class="exercise-container">
-      <router-link v-bind:to="{name:'exerciseDetail', params:{id:exercise.exerciseId}}" v-for="exercise in $store.state.exercises" v-bind:key="exercise.exerciseId" ><exercise-card 
+      <div>
+          <label>Cardio</label>
+          <label><input type="checkbox" name="checkbox"></label>
+
+      <router-link v-bind:to="{name:'exerciseDetail', params:{id:exercise.exerciseId}}" v-for="exercise in cardioExercise" v-bind:key="exercise.exerciseId" ><exercise-card 
             v-bind:key="exercise.exerciseId"
             v-bind:exercise="exercise"
 
       ></exercise-card></router-link>
+  </div>
+    <div>
+        <label>Back</label>
+        <label><input type="checkbox" name="checkbox"></label>
+    <router-link v-bind:to="{name:'exerciseDetail', params:{id:exercise.exerciseId}}" v-for="exercise in backExercise" v-bind:key="exercise.exerciseId" ><exercise-card 
+            v-bind:key="exercise.exerciseId"
+            v-bind:exercise="exercise"
+
+      ></exercise-card></router-link>
+    </div>
+    
+  <div>
+      <label>Legs</label>
+      <label><input type="checkbox" name="checkbox"></label>
+      <router-link v-bind:to="{name:'exerciseDetail', params:{id:exercise.exerciseId}}" v-for="exercise in legsExercise" v-bind:key="exercise.exerciseId" ><exercise-card 
+            v-bind:key="exercise.exerciseId"
+            v-bind:exercise="exercise"
+
+      ></exercise-card></router-link>
+  </div>
+    <div>
+        <label>Arms</label>
+        <label><input type="checkbox" name="checkbox"></label>
+      <router-link v-bind:to="{name:'exerciseDetail', params:{id:exercise.exerciseId}}" v-for="exercise in armsExercise" v-bind:key="exercise.exerciseId" ><exercise-card 
+            v-bind:key="exercise.exerciseId"
+            v-bind:exercise="exercise"
+
+      ></exercise-card></router-link>
+  </div>
+  <div>
+      <label>Abs</label>
+      <label><input type="checkbox" name="checkbox"></label>
+      <router-link v-bind:to="{name:'exerciseDetail', params:{id:exercise.exerciseId}}" v-for="exercise in absExercise" v-bind:key="exercise.exerciseId" ><exercise-card 
+            v-bind:key="exercise.exerciseId"
+            v-bind:exercise="exercise"
+
+      ></exercise-card></router-link>
+  </div>
+
   </div>
 </template>
 
@@ -14,6 +57,52 @@ import exercise from "../services/Exercise.js";
 
 
 export default {
+    computed: {
+      cardioExercise() {
+          return this.$store.state.exercises.filter(
+              (exercise) => {
+                  return (exercise.bodyGroupId == 1) 
+              }
+          )
+
+      },
+
+      backExercise() {
+          return this.$store.state.exercises.filter(
+              (exercise) => {
+                  return (exercise.bodyGroupId == 2) 
+              }
+          )
+
+      },
+    legsExercise() {
+          return this.$store.state.exercises.filter(
+              (exercise) => {
+                  return (exercise.bodyGroupId == 3) 
+              }
+          )
+
+      },
+      armsExercise() {
+          return this.$store.state.exercises.filter(
+              (exercise) => {
+                  return (exercise.bodyGroupId == 4) 
+              }
+          )
+
+      },
+    absExercise() {
+          return this.$store.state.exercises.filter(
+              (exercise) => {
+                  return (exercise.bodyGroupId == 5) 
+              }
+          )
+
+      },
+
+    },
+
+
     name: 'exercise-list',
     components: {
       ExerciseCard
