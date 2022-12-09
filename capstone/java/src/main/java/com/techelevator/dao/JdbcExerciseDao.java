@@ -79,11 +79,20 @@ public class JdbcExerciseDao implements ExerciseDao {
 
     @Override
     public void editExercise(String exerciseName, String description, int bodyGroupId, int exerciseId) {
-        String insertUserSql = "UPDATE exercise SET exercise_name = ?, description = ?, body_group_id = ?\n" +
+        String insertUserSql = "UPDATE exercise SET exercise_name = ?, description = ?, body_group_id = ?" +
                 "WHERE exercise_id = ?";
 
         jdbcTemplate.update(insertUserSql, exerciseName, description, bodyGroupId, exerciseId);
     }
+
+    @Override
+    public void deleteExercise(int exerciseId) {
+        String deleteUserSql = "DELETE from exercise Where exercise_id = ? ";
+
+        jdbcTemplate.update(deleteUserSql, exerciseId);
+    }
+
+
 
     private Exercise mapRowToExercise(SqlRowSet rs) {
         Exercise exercise = new Exercise();

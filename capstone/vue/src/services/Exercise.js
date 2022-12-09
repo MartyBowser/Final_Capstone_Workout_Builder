@@ -12,5 +12,9 @@ export default
 
      edit(exercise) {
        return axios.put('/exercise', exercise)
+     },
+
+     delete(exerciseId) {
+       return axios.delete(`/exercise/${exerciseId}` )
      }
 }
