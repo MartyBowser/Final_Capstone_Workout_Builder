@@ -1,16 +1,17 @@
 <template>
   <div class="card">
     <h2 class="exercise-title">{{ exercise.exerciseName }}</h2>
-
     <h3 class="exercise-description">{{ exercise.description }}</h3>
+    <h3 class="exercise-expected-time">Time: {{ exercise.expectedTime }} Mins</h3>
+    <h3 class="exercise-suggested-time">Weight: {{ exercise.suggestedWeight }} lbs</h3>
+    <h3 class="exercise-number-of-reps"># of Reps: {{ exercise.numberOfReps}}</h3>
+    
     <!-- 
     <button v-on:click="markRead(true)" v-if="!book.read" class="mark-read">Mark Read</button>
     <button v-on:click="markRead(false)" v-if="book.read" class="mark-unread">Mark Unread</button> -->
 
-    <a href="#" v-on:click.prevent="showForm = !showForm">{{
-      showForm ? "Cancel edits" : "Edit exercise"
-    }}</a>
-    <a href="#" v-on:click.prevent="showForm = !showForm">{{
+   
+    <a href="#" v-show="isCanEdit" v-on:click.prevent="showForm = !showForm">{{
       showForm ? "Cancel edits" : "Edit exercise"
     }}</a>
 
@@ -19,7 +20,7 @@
       class="formCreateExercise"
       @submit.prevent="update"
     >
-      <h1 class="h3 mb-3 font-weight-normal">Create Exercise</h1>
+      <h1 class="h3 mb-3 font-weight-normal">Edit Exercise</h1>
       <div class="alert alert-danger" role="alert" v-if="CreationError">
         {{ CreationErrorMsg }}
       </div>
@@ -40,6 +41,31 @@
         v-model="editingExercise.description"
         required
       />
+        <input
+        type="number"
+        id="expected-time"
+        class="form-control"
+        v-bind:placeholder="exercise.expectedTime"
+        v-model="editingExercise.expectedTime"
+        required
+      />
+        <input
+        type="number"
+        id="suggested-weight"
+        class="form-control"
+        v-bind:placeholder="exercise.suggestedWeight"
+        v-model="editingExercise.suggestedWeight"
+        required
+      />
+ <input
+        type="number"
+        id="reps"
+        class="form-control"
+        v-bind:placeholder="exercise.numberOfReps"
+        v-model="editingExercise.numberOfReps"
+        required
+      />
+
 
       <select
         required
@@ -59,7 +85,7 @@
       <button class="form-button" type="submit">Submit</button>
       
     </form>
-    <button v-on:click="deleteExercise" class="delete-exercise" >Delete Exercise</button>
+    <button v-show="isCanEdit" v-on:click="deleteExercise" class="delete-exercise" >Delete Exercise</button>
   </div>
 </template>
 
@@ -77,12 +103,31 @@ export default {
         exerciseName: '',
         description: '',
          bodyGroupId: '0',
-         exerciseId: ''
+         exerciseId: '',
+         expectedTime: '',
+         suggestedWeight: '',
+         numberOfReps: '',
+         userId: this.exercise.userId,
      },
      showForm: false,
       CreationError: false,
       CreationErrorMsg: 'There were problems create exercise.'
 };
+  },
+  computed:{
+    
+    isCanEdit()
+    {
+      if(this.$store.state.user.authorities[0].name==="ROLE_ADMIN" || this.$store.state.user.id === this.editingExercise.userId)
+        {
+          return true;
+        }
+        else
+        {
+          return false;
+        }
+    }
+
   },
   methods: {
       update() {

@@ -71,18 +71,18 @@ public class JdbcExerciseDao implements ExerciseDao {
     }
 
     @Override
-    public boolean create(String exerciseName, String description, int bodyGroupId, int userId) {
-        String insertUserSql = "insert into exercise (exercise_name,description,body_group_id,user_id) values (?,?,?,?)";
+    public boolean create(String exerciseName, String description, int bodyGroupId, int userId, int expectedTime, int suggestedWeight, int numberOfReps) {
+        String insertUserSql = "insert into exercise (exercise_name,description,body_group_id,user_id,expected_time,suggested_weight,number_of_reps) values (?,?,?,?,?,?,?)";
 
-        return jdbcTemplate.update(insertUserSql, exerciseName, description, bodyGroupId, userId) == 1;
+        return jdbcTemplate.update(insertUserSql, exerciseName, description, bodyGroupId, userId, expectedTime, suggestedWeight, numberOfReps) == 1;
     }
 
     @Override
-    public void editExercise(String exerciseName, String description, int bodyGroupId, int exerciseId) {
-        String insertUserSql = "UPDATE exercise SET exercise_name = ?, description = ?, body_group_id = ?" +
+    public void editExercise(String exerciseName, String description, int bodyGroupId, int exerciseId, int expectedTime, int suggestedWeight, int numberOfReps) {
+        String insertUserSql = "UPDATE exercise SET exercise_name = ?, description = ?, body_group_id = ?, expected_time = ?, suggested_weight = ?, number_of_reps = ?" +
                 "WHERE exercise_id = ?";
 
-        jdbcTemplate.update(insertUserSql, exerciseName, description, bodyGroupId, exerciseId);
+        jdbcTemplate.update(insertUserSql, exerciseName, description, bodyGroupId, exerciseId, expectedTime, suggestedWeight, numberOfReps);
     }
 
     @Override
@@ -101,6 +101,9 @@ public class JdbcExerciseDao implements ExerciseDao {
         exercise.setDescription(rs.getString("description"));
         exercise.setBodyGroupId(rs.getInt("body_group_id"));
         exercise.setUserId(rs.getInt("user_id"));
+        exercise.setExpectedTime(rs.getInt("expected_time"));
+        exercise.setSuggestedWeight(rs.getInt("suggested_weight"));
+        exercise.setNumberOfReps(rs.getInt("number_of_reps"));
         return exercise;
     }
 }

@@ -23,6 +23,30 @@
         v-model="exercise.description"
         required
       />
+      <input
+        type="number"
+        id="expected-time"
+        class="form-control"
+        placeholder="Expected Time"
+        v-model="exercise.expectedTime"
+        required
+      />
+      <input
+        type="number"
+        id="suggested-weight"
+        class="form-control"
+        placeholder="Suggested Weight in lbs"
+        v-model="exercise.suggestedWeight"
+        required
+      />
+      <input
+        type="number"
+        id="number-of-reps"
+        class="form-control"
+        placeholder="Number of Reps"
+        v-model="exercise.numberOfReps"
+        required
+      />
 
 
 
@@ -35,6 +59,7 @@
     <option value="3">Leg</option>
     <option value="4">Arms</option>
     <option value="5">Abs</option>
+    <option value="6">Full Body</option>
     </select>
      
       
@@ -57,7 +82,10 @@ name: 'createExercise',
         exerciseName: '',
         description: '',
          bodyGroupId: '0',
-         userId: ''
+         userId: '',
+         expectedTime: '',
+         suggestedWeight: '',
+         numberOfReps: ''
      },
       CreationError: false,
       CreationErrorMsg: 'There were problems create exercise.'
@@ -66,9 +94,8 @@ name: 'createExercise',
   methods: {
     create() {
      if(this.exercise.bodyGroupId > 0){
-
-     
-        exercise
+      this.exercise.userId = this.$store.state.user.id;
+      exercise
           .create(this.exercise)
           .then((response) => {
             if (response.status == 200) {

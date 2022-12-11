@@ -9,7 +9,7 @@
 
     <!-- the 2 buttons bellow need to route to new workout and to workout history, they are NOT routed yet-->
     
-      <button v-show="!isUser" class="form-button-history" v-on:click="createExercise">
+      <button v-show="isUser||isTrainer||isAdmin" class="form-button-history" v-on:click="createExercise">
         Your Workout History
       </button>
       
@@ -25,16 +25,16 @@
     <option value="3">45 Minutes</option>
     <option value="4">60 Minutes</option>
     </select>
-    <button v-show="!isUser" class="form-button-start-workout" v-on:click="createExercise">
+    <button disabled v-show="isUser||isTrainer||isAdmin" class="form-button-start-workout" v-on:click="createExercise">
         Generate Workout
       </button>
     </div>
-     <button v-show="isUser" class="form-button-create-exercise" v-on:click="createExercise">
+     <button v-show="isTrainer||isAdmin" class="form-button-create-exercise" v-on:click="createExercise">
         Create Exercise
       </button>
 
 
-      <button v-show="isUser" class="form-button-add-trainer" v-on:click="addTrainer">
+      <button v-show="isAdmin" class="form-button-add-trainer" v-on:click="addTrainer">
         Add Trainer
       </button>
 
@@ -66,10 +66,24 @@ export default {
   {
 isUser(){
     if(this.$store.state.user.authorities[0].name==="ROLE_USER")
-    {return false }
+    {return true }
     else{
-      return true}
-    }
+      return false}
+    },
+isTrainer(){
+    if(this.$store.state.user.authorities[0].name==="ROLE_TRAINER")
+    {return true }
+    else{
+      return false}
+    }, 
+isAdmin(){
+    if(this.$store.state.user.authorities[0].name==="ROLE_ADMIN")
+    {return true }
+    else{
+      return false}
+    },     
+    
   }
+  
 };
 </script>

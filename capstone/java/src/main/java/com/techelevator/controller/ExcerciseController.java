@@ -44,7 +44,7 @@ public class ExcerciseController {
             Exercise exercise = exerciseDao.findExerciseByName(newExercise.getExerciseName());
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Exercise Already Exists.");
         } catch (Exception e) {
-            exerciseDao.create(newExercise.getExerciseName(), newExercise.getDescription(), newExercise.getBodyGroupId(), newExercise.getUserId());
+            exerciseDao.create(newExercise.getExerciseName(), newExercise.getDescription(), newExercise.getBodyGroupId(), newExercise.getUserId(), newExercise.getExpectedTime(), newExercise.getSuggestedWeight(), newExercise.getNumberOfReps());
         }
     }
 
@@ -59,7 +59,7 @@ public class ExcerciseController {
     //check if it already exists
     @RequestMapping(value = "/exercise", method = RequestMethod.PUT)
     public void editExercise(@Valid @RequestBody Exercise editingExercise) {
-        exerciseDao.editExercise(editingExercise.getExerciseName(), editingExercise.getDescription(), editingExercise.getBodyGroupId(), editingExercise.getExerciseId());
+        exerciseDao.editExercise(editingExercise.getExerciseName(), editingExercise.getDescription(), editingExercise.getBodyGroupId(), editingExercise.getExerciseId(), editingExercise.getExpectedTime(), editingExercise.getSuggestedWeight(), editingExercise.getNumberOfReps());
     }
     @RequestMapping(value = "/exercise/{exerciseId}", method = RequestMethod.DELETE)
     public void deleteExercise(@PathVariable int exerciseId) {
