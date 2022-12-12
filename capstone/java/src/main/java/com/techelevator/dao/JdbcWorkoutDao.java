@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,10 +71,10 @@ public class JdbcWorkoutDao implements WorkoutDao{
     }
 
     @Override
-    public boolean create(String workoutName, int exerciseId, int bodyGroupId, int sets, int reps, int duration) {
-        String insertUserSql = "insert into workout (workout_name,exercise_id, body_group_id, sets, reps, duration) values (?,?,?,?,?,?)";
+    public boolean create(LocalDate dateCreated, int duration) {
+        String insertUserSql = "insert into workout (date_created, duration) values (?,?)";
 
-        return jdbcTemplate.update(insertUserSql, workoutName, exerciseId, bodyGroupId, sets, reps, duration) == 1;
+        return jdbcTemplate.update(insertUserSql, dateCreated, duration) == 1;
     }
 
     @Override

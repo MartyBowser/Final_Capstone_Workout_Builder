@@ -1,5 +1,6 @@
 BEGIN TRANSACTION;
 
+DROP TABLE IF EXISTS workout_body_group;
 DROP TABLE IF EXISTS workout_history;
 DROP TABLE IF EXISTS workout_exercise;
 DROP TABLE IF EXISTS workout;
@@ -47,9 +48,9 @@ CREATE TABLE exercise_users (
 
 CREATE TABLE workout (
     workout_id SERIAL,
-    exercise_id int NOT NULL,
-    body_group_id int NOT NULL,
-    date_created varchar(200) NOT NULL UNIQUE,
+    exercise_id int,
+    body_group_id int,
+    date_created date NOT NULL,
     duration int NOT NULL,
     CONSTRAINT pk_workout PRIMARY KEY (workout_id),
     CONSTRAINT FK_workout_body_group FOREIGN KEY (body_group_id) REFERENCES body_group (body_group_id),
@@ -72,4 +73,12 @@ CREATE TABLE workout_history (
     CONSTRAINT FK_workout_history_workout FOREIGN KEY (workout_id) REFERENCES workout (workout_id),
     CONSTRAINT FK_workout_history_users FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
+
+CREATE TABLE workout_body_group (
+    workout_id int NOT NULL,
+    body_group_id int NOT NULL,
+    CONSTRAINT FK_workout_body_group_workout FOREIGN KEY (workout_id) REFERENCES workout (workout_id),
+    CONSTRAINT FK_workout_body_group_body_group FOREIGN KEY (body_group_id) REFERENCES body_group (body_group_id)
+);
+
 COMMIT TRANSACTION;

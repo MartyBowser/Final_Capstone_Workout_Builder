@@ -3,6 +3,7 @@ package com.techelevator.dao;
 import com.techelevator.model.Exercise;
 import com.techelevator.model.Workout;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface WorkoutDao {
@@ -14,7 +15,7 @@ public interface WorkoutDao {
 
     int findIdByWorkoutName(String workoutName);
 
-    boolean create(String workoutName, int exerciseId, int bodyGroupId, int sets, int reps, int duration);
+    boolean create(LocalDate dateCreated, int duration);
 
     public void editWorkout(int workoutId, String workoutName, int exerciseId, int bodyGroupId, int sets, int reps, int duration);
 

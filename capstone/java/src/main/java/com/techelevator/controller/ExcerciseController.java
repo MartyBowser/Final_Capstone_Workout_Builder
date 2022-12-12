@@ -3,6 +3,7 @@ package com.techelevator.controller;
 import javax.validation.Valid;
 
 import com.techelevator.dao.ExerciseDao;
+import com.techelevator.dao.WorkoutDao;
 import com.techelevator.model.*;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -19,6 +20,7 @@ import com.techelevator.dao.UserDao;
 import com.techelevator.security.jwt.JWTFilter;
 import com.techelevator.security.jwt.TokenProvider;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,11 +32,13 @@ public class ExcerciseController {
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
     private UserDao userDao;
     private ExerciseDao exerciseDao;
+    private WorkoutDao workoutDao;
 
     public ExcerciseController(TokenProvider tokenProvider, AuthenticationManagerBuilder authenticationManagerBuilder, ExerciseDao exerciseDao) {
         this.tokenProvider = tokenProvider;
         this.authenticationManagerBuilder = authenticationManagerBuilder;
         this.exerciseDao = exerciseDao;
+        this.workoutDao = workoutDao;
     }
 
 
@@ -60,7 +64,8 @@ public class ExcerciseController {
     public List<Exercise> getGeneratedExercise(@RequestBody WorkoutRequests workoutRequests) {
         List<Exercise> listOfExercise = new ArrayList<>();
 
-        listOfExercise = exerciseDao.findAll();
+        listOfExercise = exerciseDao.findAllGenerate(workoutRequests.getSelectedBodyGroups(), workoutRequests.getTotalTime());
+        workoutDao.create(LocalDate.now(), workoutRequests.getTotalTime());
         return listOfExercise;
     }
 

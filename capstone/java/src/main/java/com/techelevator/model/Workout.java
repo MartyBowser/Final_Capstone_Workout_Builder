@@ -1,5 +1,7 @@
 package com.techelevator.model;
 
+import java.time.LocalDate;
+
 public class Workout {
     private int workoutId;
     private int exerciseId;
@@ -8,6 +10,7 @@ public class Workout {
     private int sets;
     private int reps;
     private int duration;
+    private LocalDate dateCreated;
 
     public Workout(int workoutId, int exerciseId, int bodyGroupId, String workoutName, int sets, int reps, int duration) {
         this.workoutId = workoutId;
@@ -18,6 +21,20 @@ public class Workout {
         this.reps = reps;
         this.duration = duration;
     }
+
+    public LocalDate getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(LocalDate dateCreated) {
+        this.dateCreated = dateCreated;
+    }
+
+    public Workout(LocalDate dateCreated, int duration) {
+        this.dateCreated = dateCreated;
+        this.duration = duration;
+    }
+
     public Workout() {
     }
 

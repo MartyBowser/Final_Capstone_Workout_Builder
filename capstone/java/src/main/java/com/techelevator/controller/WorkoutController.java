@@ -35,7 +35,7 @@ public class WorkoutController {
             Workout workout= workoutDao.findWorkoutByName(newWorkout.getWorkoutName());
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Workout Already Exists.");
         } catch (Exception e) {
-            workoutDao.create(newWorkout.getWorkoutName(), newWorkout.getExerciseId(), newWorkout.getBodyGroupId(), newWorkout.getSets(), newWorkout.getReps(), newWorkout.getDuration());
+            workoutDao.create(newWorkout.getDateCreated(), newWorkout.getDuration());
         }
     }
 
