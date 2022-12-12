@@ -2,7 +2,7 @@
   <div class="exercise-container">
       <div class="card">
           <label>Cardio</label>
-          <input v-on:change="cardioSelected" type="checkbox" name="checkbox" id="cardio"/>
+          <input v-on:change="cardioSelected" type="checkbox" name="checkbox" id="cardio" v-bind:value="1" v-model="workoutRequests.selectedBodyGroups" />
 
       <router-link v-bind:to="{name:'exerciseDetail', params:{id:exercise.exerciseId}}" v-for="exercise in cardioExercise" v-bind:key="exercise.exerciseId" ><exercise-card 
             v-bind:key="exercise.exerciseId"
@@ -12,7 +12,7 @@
   </div>
     <div class="card">
         <label>Back</label>
-        <input v-on:change="backSelected" type="checkbox" name="checkbox" id="back"/>
+        <input v-on:change="backSelected" type="checkbox" name="checkbox" id="back" v-bind:value="2" v-model="workoutRequests.selectedBodyGroups"/>
     <router-link v-bind:to="{name:'exerciseDetail', params:{id:exercise.exerciseId}}" v-for="exercise in backExercise" v-bind:key="exercise.exerciseId" ><exercise-card 
             v-bind:key="exercise.exerciseId"
             v-bind:exercise="exercise"
@@ -22,7 +22,7 @@
     
   <div class="card">
       <label>Legs</label>
-      <input v-on:change="legsSelected" type="checkbox" name="checkbox" id = "legs"/>
+      <input v-on:change="legsSelected" type="checkbox" name="checkbox" id = "legs" v-bind:value="3" v-model="workoutRequests.selectedBodyGroups"/>
       <router-link v-bind:to="{name:'exerciseDetail', params:{id:exercise.exerciseId}}" v-for="exercise in legsExercise" v-bind:key="exercise.exerciseId" ><exercise-card 
             v-bind:key="exercise.exerciseId"
             v-bind:exercise="exercise"
@@ -31,7 +31,7 @@
   </div>
     <div class="card">
         <label>Arms</label>
-        <input v-on:change="armsSelected" type="checkbox" name="checkbox" id= "arms"/>
+        <input v-on:change="armsSelected" type="checkbox" name="checkbox" id= "arms" v-bind:value="4" v-model="workoutRequests.selectedBodyGroups"/>
       <router-link v-bind:to="{name:'exerciseDetail', params:{id:exercise.exerciseId}}" v-for="exercise in armsExercise" v-bind:key="exercise.exerciseId" ><exercise-card 
             v-bind:key="exercise.exerciseId"
             v-bind:exercise="exercise"
@@ -40,7 +40,7 @@
   </div>
   <div class="card">
       <label>Abs</label>
-      <input v-on:change="absSelected" type="checkbox" name="checkbox" id= "abs"/>
+      <input v-on:change="absSelected" type="checkbox" name="checkbox" id= "abs" v-bind:value="5" v-model="workoutRequests.selectedBodyGroups"/>
       <router-link v-bind:to="{name:'exerciseDetail', params:{id:exercise.exerciseId}}" v-for="exercise in absExercise" v-bind:key="exercise.exerciseId" ><exercise-card 
             v-bind:key="exercise.exerciseId"
             v-bind:exercise="exercise"
@@ -49,14 +49,23 @@
   </div>
 <div class="card">
       <label>Full Body</label>
-     <input v-on:change="fullbodySelected" type="checkbox" name="checkbox" id="full-body"/>
+     <input v-on:change="fullbodySelected" type="checkbox" name="checkbox" id="full-body" v-bind:value="6" v-model="workoutRequests.selectedBodyGroups"/>
       <router-link v-bind:to="{name:'exerciseDetail', params:{id:exercise.exerciseId}}" v-for="exercise in fullbodyExercise" v-bind:key="exercise.exerciseId" ><exercise-card 
             v-bind:key="exercise.exerciseId"
             v-bind:exercise="exercise"
 
       ></exercise-card></router-link>
   </div>
+  <select  required  class="Form-WorkoutTime" v-model="workoutRequests.timeNeeded">
+<option selected value="0">Select Work Length</option>
+
+    <option value="1">15 Minutes</option>
+    <option value="2">30 Minutes</option>
+    <option value="3">45 Minutes</option>
+    <option value="4">60 Minutes</option>
+    </select>
   </div>
+  
 </template>
 
 <script>
@@ -75,7 +84,11 @@ export default {
            exerciseSelectedArms: false,
            exerciseSelectedAbs: false,
            exerciseSelectedFullBody: false,
-           selectedWorkouts:[], 
+           selectedWorkouts:[],
+           workoutRequests:{
+               selectedBodyGroups:[],
+               timeNeeded:'0'
+           } 
         }
 
     },

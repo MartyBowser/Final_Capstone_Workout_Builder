@@ -17,14 +17,7 @@
     <exercise-list />
     <div>
       <p>Please select your focus area and the time for workout</p>
-       <select  required  class="Form-WorkoutTime">
-<option selected value="0">Select Work Length</option>
-
-    <option value="1">15 Minutes</option>
-    <option value="2">30 Minutes</option>
-    <option value="3">45 Minutes</option>
-    <option value="4">60 Minutes</option>
-    </select>
+       
     <button disabled v-show="isUser||isTrainer||isAdmin" class="form-button-start-workout" v-on:click="createExercise">
         Generate Workout
       </button>

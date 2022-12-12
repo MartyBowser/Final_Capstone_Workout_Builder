@@ -16,5 +16,8 @@ export default
 
      deleteExercise(exerciseId) {
        return axios.delete(`/exercise/${exerciseId}` )
+     },
+     generateWorkout(workoutRequests){
+       return axios.post('/getworkout', workoutRequests)
      }
 }

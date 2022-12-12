@@ -18,4 +18,6 @@ public interface ExerciseDao {
     public void editExercise(String exerciseName, String description, int bodyGroupId, int exerciseId, int expectedTime, int suggestedWeight, int numberOfReps);
 
     public void deleteExercise(int exerciseId);
+
+    List<Exercise> findAllGenerate(int[] ids, int timeNeeded);
 }

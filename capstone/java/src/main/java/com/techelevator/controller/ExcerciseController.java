@@ -56,6 +56,15 @@ public class ExcerciseController {
         return listOfExercise;
     }
 
+    @RequestMapping(value = "/getworkout", method = RequestMethod.POST)
+    public List<Exercise> getGeneratedExercise(@RequestBody WorkoutRequests workoutRequests) {
+        List<Exercise> listOfExercise = new ArrayList<>();
+
+        listOfExercise = exerciseDao.findAll();
+        return listOfExercise;
+    }
+
+
     //check if it already exists
     @RequestMapping(value = "/exercise", method = RequestMethod.PUT)
     public void editExercise(@Valid @RequestBody Exercise editingExercise) {

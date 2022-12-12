@@ -47,6 +47,8 @@ public class WorkoutController {
         return listOfWorkout;
     }
 
+
+
     //check if it already exists
     @RequestMapping(value = "/Workout", method = RequestMethod.PUT)
     public void editWorkout(@Valid @RequestBody Workout editingWorkout) {

@@ -59,6 +59,33 @@ public class JdbcExerciseDao implements ExerciseDao {
     }
 
     @Override
+    public List<Exercise> findAllGenerate(int[] ids, int timeNeeded)
+    {
+      ArrayList<ArrayList<Exercise>> generatedList = new ArrayList<>();
+
+       ArrayList<Exercise> exercises = new ArrayList<>();
+
+        for(int i = 0; i < ids.length; i++)
+        {
+            String sql = "select * from exercise where id = ?";
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, ids[i]);
+            while (results.next()) {
+                Exercise exercise = mapRowToExercise(results);
+                exercises.add(exercise);
+
+            }
+            generatedList.add(exercises);
+        }
+
+        ArrayList<Exercise> newexercises = new ArrayList<>();
+
+        for(int i = 0; i < generatedList.size(); i++) {
+            newexercises.add(generatedList.get(i).get(1));
+        }
+        return newexercises;
+    }
+
+    @Override
     public Exercise findExerciseByName(String exerciseName) {
         if (exerciseName == null) throw new IllegalArgumentException("Exercise name cannot be null");
 
