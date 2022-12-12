@@ -32,7 +32,18 @@ public class JdbcWorkoutDao implements WorkoutDao{
 
         return workoutId;
     }
+       @Override
+        public boolean createWorkoutIdBodyGroupId(int workoutId, int bodyGroupId){
+           String insertUserSql = "INSERT INTO workout_body_group (workout_id, body_group_id) VALUES (?, ?);";
 
+           return jdbcTemplate.update(insertUserSql, workoutId, bodyGroupId) == 1;
+       }
+       @Override
+       public boolean createWorkoutExercise(int workoutId, int exerciseId){
+           String insertUserSql = "INSERT INTO workout_exercise (workout_id, exercise_id) VALUES (?, ?)";
+
+           return jdbcTemplate.update(insertUserSql, workoutId, exerciseId) == 1;
+       }
     @Override
     public  Workout getWorkoutById(int workoutId) {
         String sql = "SELECT * FROM workout WHERE workout_id = ?";
@@ -71,10 +82,10 @@ public class JdbcWorkoutDao implements WorkoutDao{
     }
 
     @Override
-    public boolean create(LocalDate dateCreated, int duration) {
-        String insertUserSql = "insert into workout (date_created, duration) values (?,?)";
+    public int create(LocalDate dateCreated, int duration) {
+        String insertUserSql = "insert into workout (date_created, duration) values (?,?) returning workout_id";
 
-        return jdbcTemplate.update(insertUserSql, dateCreated, duration) == 1;
+        return jdbcTemplate.update(insertUserSql, dateCreated, duration);
     }
 
     @Override

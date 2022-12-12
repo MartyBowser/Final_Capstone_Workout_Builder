@@ -15,9 +15,13 @@ public interface WorkoutDao {
 
     int findIdByWorkoutName(String workoutName);
 
-    boolean create(LocalDate dateCreated, int duration);
+    int create(LocalDate dateCreated, int duration);
 
     public void editWorkout(int workoutId, String workoutName, int exerciseId, int bodyGroupId, int sets, int reps, int duration);
 
     public void deleteWorkout(int workoutId);
+
+    boolean createWorkoutIdBodyGroupId(int workoutId, int bodyGroupId);
+
+    boolean createWorkoutExercise(int workoutId, int exerciseId);
 }

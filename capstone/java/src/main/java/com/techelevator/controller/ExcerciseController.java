@@ -65,9 +65,17 @@ public class ExcerciseController {
         List<Exercise> listOfExercise = new ArrayList<>();
 
         listOfExercise = exerciseDao.findAllGenerate(workoutRequests.getSelectedBodyGroups(), workoutRequests.getTotalTime());
-        workoutDao.create(LocalDate.now(), workoutRequests.getTotalTime());
-        return listOfExercise;
+        int workoutId = workoutDao.create(LocalDate.now(), workoutRequests.getTotalTime());
+        for(int i = 0; i< listOfExercise.size(); i++){
+            workoutDao.createWorkoutExercise(workoutId, listOfExercise.get(i).getExerciseId());
+        }
+        for(int i = 0; i< listOfExercise.size(); i++){
+            workoutDao.createWorkoutIdBodyGroupId(workoutId, listOfExercise.get(i).getBodyGroupId());
+        }
+
+            return listOfExercise;
     }
+
 
 
     //check if it already exists
@@ -79,5 +87,6 @@ public class ExcerciseController {
     public void deleteExercise(@PathVariable int exerciseId) {
         exerciseDao.deleteExercise(exerciseId);
     }
+
 
 }
