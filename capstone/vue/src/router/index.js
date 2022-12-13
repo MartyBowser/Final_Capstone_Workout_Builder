@@ -8,6 +8,8 @@ import store from '../store/index'
 import createExercise from '../views/createExercise.vue'
 import RegisterTrainer from '../views/RegisterTrainer.vue'
 import ExerciseDetails from '../views/ExerciseDetails.vue'
+import GeneratedWorkout from '../views/GeneratedWorkout.vue'
+
 Vue.use(Router)
 
 /**
@@ -75,6 +77,14 @@ const router = new Router({
       path: "/exercise/:id",
       name: "exerciseDetail",
       component: ExerciseDetails,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/getworkout",
+      name: "generateWorkout",
+      component: GeneratedWorkout,
       meta: {
         requiresAuth: false
       }

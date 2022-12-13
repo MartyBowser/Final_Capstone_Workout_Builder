@@ -11,7 +11,7 @@
 
     <exercise-list />
     
-    <button disabled v-show="isUser||isTrainer||isAdmin" class="form-button-start-workout" v-on:click="createExercise">
+    <button disabled id="generate-workout" v-show="isUser||isTrainer||isAdmin" class="form-button-start-workout" v-on:click="createExercise">
         Generate Workout
       </button>
     <p> </p>
@@ -34,23 +34,20 @@
 </template>
 
 <script>
-//import Exercise from '../components/Exercise.vue'
-import ExerciseList from '../components/ExerciseList.vue'
+
+import ExerciseList from '../components/ExerciseList.vue';
+
 export default {
   components: {  ExerciseList },
-/**data(){
-  return{
-    items:["1","2"]
-  }
-},*/
   name: "home",
-  methods: {createExercise()
+  methods: {
+  createExercise()
   {this.$router.push('/exercise')
   },
   addTrainer(){
     this.$router.push('/addtrainer')
-  }
-  
+  },
+    
   },
   computed:
   {

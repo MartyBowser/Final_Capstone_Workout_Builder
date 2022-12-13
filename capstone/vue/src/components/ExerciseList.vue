@@ -56,7 +56,7 @@
 
       ></exercise-card></router-link>
   </div>
-  <select  required  class="Form-WorkoutTime" v-model="workoutRequests.timeNeeded">
+  <select v-on:change="canClickGenerated"  required  class="Form-WorkoutTime" v-model="workoutRequests.timeNeeded">
 <option selected value="0">Select Work Length</option>
 
     <option value="1">15 Minutes</option>
@@ -69,7 +69,7 @@
 </template>
 
 <script>
-import ExerciseCard from './ExerciseCard.vue'
+import ExerciseCard from './ExerciseCard.vue';
 import exercise from "../services/Exercise.js";
 
 
@@ -142,7 +142,7 @@ export default {
           )
 
       },
-
+      
     },
 
 
@@ -156,6 +156,25 @@ this.getExercises();
 }, 
 methods:
 {
+    generateWorkoutClicked()
+    {
+         exercise.generateWorkout(this.workoutRequests).then(response => {
+            this.$store.commit("SET_GENERATED", response.data)
+        
+        });
+        this.$router.push('/getworkout');
+    },
+    canClickGenerated()
+    {
+        if((this.exerciseSelectedCardio === true) && this.workoutRequests.timeNeeded > 0)
+        {
+            document.getElementById("generate-workout").setAttribute("disabled", false);
+        }
+        else{
+
+            document.getElementById("generate-workout").setAttribute("disabled", true);
+        }
+    },
     getExercises()
     {
         exercise.listExercise().then(response => {
