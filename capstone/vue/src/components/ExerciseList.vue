@@ -1,4 +1,5 @@
 <template>
+<div class="exercise-list-and-buttons">
   <div class="exercise-container">
       <div class="card">
           <label>Cardio</label>
@@ -56,6 +57,8 @@
 
       ></exercise-card></router-link>
   </div>
+  </div>
+  <div class = "workout-buttons">
   <div>
   <select v-on:change="canClickGenerated"  required  class="Form-WorkoutTime" v-model="workoutRequests.timeNeeded">
 <option selected value="0">Select Work Length</option>
@@ -70,7 +73,8 @@
     <button v-on:click="generateWorkoutClicked" id="generate-workou"  class="form-button-start-workout" >
         Generate Workout
       </button>
-    <p> </p>
+
+    </div>
     </div>
   </div>
   

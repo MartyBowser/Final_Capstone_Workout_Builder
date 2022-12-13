@@ -42,6 +42,7 @@
     font-family: "Roboto", sans-serif;
     font-size: 15px;
     margin-top: 1%;
+    grid-area: welcome;
   }
   .alert alert-success{
     font-family: "Roboto", sans-serif;
@@ -69,8 +70,7 @@
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     outline: 50px;
-    background: #4CAF50;
-    width: 30%;
+    background:#4CAF50;
     border: 10px;
     padding: 15px;
     color: #FFFFFF;
@@ -80,8 +80,8 @@
     cursor: pointer;
     outline-color: #f2f2f2;
     text-align: center;
-    margin: auto;
-    display:grid;
+    margin: 20px;
+    align-items: center;
   }
   .form-button-start-workout:hover,.form-button:active,.form-button:focus {
     background: #43A047;
@@ -248,6 +248,13 @@
   .home {
       color: white;
       font-family: "Roboto", sans-serif;
+      display:grid;
+      grid-template-columns: 95%;
+      grid-template-areas: 
+      "user-greetings"
+      "welcome"
+      "buttons"
+      "exercise-list";
   }
   #nav a {
     color: white;
@@ -295,11 +302,10 @@
 .Form-WorkoutTime{
   font-family: "Roboto", sans-serif;
     text-transform: uppercase;
-    outline: 50px;
     background: #4CAF50;
-    width: 30%;
     border: 10px;
     padding: 15px;
+    margin: 20px;;
     color: #FFFFFF;
     font-size: 14px;
    -webkit-transition: all 0.3 ease;
@@ -307,10 +313,22 @@
     cursor: pointer;
     outline-color: #f2f2f2;
     text-align: center;
-    margin: auto;
-    display:grid;
+    display:flex;
+    flex-direction: column;
+    flex-basis: 50%;
 }
-.edit-button-exercise{
-  
-
+.button-div{
+display: flex;
+grid-area: buttons;
+}
+.exercise-list{
+  grid-area: exercise-list;
+}
+.user-greetings{
+  grid-area: user-greetings;
+}
+.workout-buttons{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
