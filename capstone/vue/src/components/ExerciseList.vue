@@ -56,6 +56,7 @@
 
       ></exercise-card></router-link>
   </div>
+  <div>
   <select v-on:change="canClickGenerated"  required  class="Form-WorkoutTime" v-model="workoutRequests.timeNeeded">
 <option selected value="0">Select Work Length</option>
 
@@ -64,10 +65,13 @@
     <option value="3">45 Minutes</option>
     <option value="4">60 Minutes</option>
     </select>
+    </div>
+    <div>
     <button v-on:click="generateWorkoutClicked" id="generate-workou"  class="form-button-start-workout" >
         Generate Workout
       </button>
     <p> </p>
+    </div>
   </div>
   
 </template>

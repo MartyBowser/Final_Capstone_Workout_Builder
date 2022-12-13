@@ -82,7 +82,6 @@
     text-align: center;
     margin: auto;
     display:grid;
-
   }
   .form-button-start-workout:hover,.form-button:active,.form-button:focus {
     background: #43A047;
@@ -294,8 +293,22 @@
     margin:auto;
 }
 .Form-WorkoutTime{
-  position: relative;
-  margin-top: 50%;
+  font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 50px;
+    background: #4CAF50;
+    width: 30%;
+    border: 10px;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+   -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    outline-color: #f2f2f2;
+    text-align: center;
+    margin: auto;
+    display:grid;
 }
 .edit-button-exercise{
   
