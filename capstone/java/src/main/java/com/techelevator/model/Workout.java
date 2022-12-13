@@ -5,13 +5,12 @@ import java.time.LocalDate;
 public class Workout {
     private int workoutId;
 
-    private boolean completed;
+    private boolean completed = false;
     private int duration;
     private LocalDate dateCreated;
 
     public Workout(int workoutId, int duration) {
         this.workoutId = workoutId;
-        this.completed = false;
         this.duration = duration;
     }
 

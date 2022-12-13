@@ -31,15 +31,15 @@ public class WorkoutController {
 
     @RequestMapping(value = "/workout", method = RequestMethod.POST)
     public void createWorkout(@Valid @RequestBody Workout newWorkout) {
-    /*
+
         try {
-            Workout workout= workoutDao.findWorkoutByName(newWorkout.getWorkoutName());
+            Workout workout= workoutDao.getWorkoutById(newWorkout.getWorkoutId());
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Workout Already Exists.");
         } catch (Exception e) {
 
-     */
+
             workoutDao.create(newWorkout.getDateCreated(), newWorkout.getDuration());
-      //  }
+       }
     }
 
     @RequestMapping(value = "/workout", method = RequestMethod.GET)

@@ -90,7 +90,7 @@ public class JdbcWorkoutDao implements WorkoutDao{
 
     @Override
     public int create(LocalDate dateCreated, int duration) {
-        String insertUserSql = "insert into workout (date_created, duration) values (?,?) returning workout_id";
+        String insertUserSql = "insert into workout (completed, date_created, duration) values (false,?,?) returning workout_id";
 
         return jdbcTemplate.queryForObject(insertUserSql, int.class, dateCreated, duration);
     }
