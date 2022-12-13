@@ -34,7 +34,7 @@ public class ExcerciseController {
     private ExerciseDao exerciseDao;
     private WorkoutDao workoutDao;
 
-    public ExcerciseController(TokenProvider tokenProvider, AuthenticationManagerBuilder authenticationManagerBuilder, ExerciseDao exerciseDao) {
+    public ExcerciseController(TokenProvider tokenProvider, AuthenticationManagerBuilder authenticationManagerBuilder, ExerciseDao exerciseDao, WorkoutDao workoutDao) {
         this.tokenProvider = tokenProvider;
         this.authenticationManagerBuilder = authenticationManagerBuilder;
         this.exerciseDao = exerciseDao;

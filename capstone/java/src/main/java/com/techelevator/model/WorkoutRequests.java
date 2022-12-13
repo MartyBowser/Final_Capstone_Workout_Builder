@@ -2,7 +2,7 @@ package com.techelevator.model;
 
 public class WorkoutRequests {
     private int totalTime;
-    private int selectedBodyGroups[];
+    private int[] selectedBodyGroups;
 
     public WorkoutRequests()
     {}

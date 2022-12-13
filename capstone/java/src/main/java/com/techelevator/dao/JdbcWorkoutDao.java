@@ -6,11 +6,13 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class JdbcWorkoutDao implements WorkoutDao{
 
     private final JdbcTemplate jdbcTemplate;
@@ -85,7 +87,7 @@ public class JdbcWorkoutDao implements WorkoutDao{
     public int create(LocalDate dateCreated, int duration) {
         String insertUserSql = "insert into workout (date_created, duration) values (?,?) returning workout_id";
 
-        return jdbcTemplate.update(insertUserSql, dateCreated, duration);
+        return jdbcTemplate.queryForObject(insertUserSql, int.class, dateCreated, duration);
     }
 
     @Override

@@ -67,7 +67,7 @@ public class JdbcExerciseDao implements ExerciseDao {
 
         for(int i = 0; i < ids.length; i++)
         {
-            String sql = "select * from exercise where id = ?";
+            String sql = "select * from exercise where body_group_id = ?";
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, ids[i]);
             while (results.next()) {
                 Exercise exercise = mapRowToExercise(results);
@@ -75,6 +75,7 @@ public class JdbcExerciseDao implements ExerciseDao {
 
             }
             generatedList.add(exercises);
+            exercises = new ArrayList<>();
         }
 
         ArrayList<Exercise> newexercises = new ArrayList<>();
