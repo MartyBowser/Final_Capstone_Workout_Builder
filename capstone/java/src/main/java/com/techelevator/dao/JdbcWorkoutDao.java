@@ -58,6 +58,17 @@ public class JdbcWorkoutDao implements WorkoutDao{
             return null;
         }
     }
+    @Override
+    public  List<Workout> getGeneratedWorkoutsByUserId(int workoutId) {
+        List<Workout> workouts = new ArrayList<>();
+        String sql = "SELECT * FROM workout WHERE workout_id = ? AND completed = false";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, workoutId);
+        while (results.next()) {
+            Workout workout = mapRowToWorkout(results);
+            workouts.add(workout);
+        }
+        return workouts;
+    }
 
     @Override
     public List<Workout> findAll() {
@@ -89,10 +100,10 @@ public class JdbcWorkoutDao implements WorkoutDao{
      */
 
     @Override
-    public int create(LocalDate dateCreated, int duration) {
-        String insertUserSql = "insert into workout (completed, date_created, duration) values (false,?,?) returning workout_id";
+    public int create(LocalDate dateCreated, int duration, int userId) {
+        String insertUserSql = "insert into workout (completed, date_created, duration, user_id) values (false,?,?, ?) returning workout_id";
 
-        return jdbcTemplate.queryForObject(insertUserSql, int.class, dateCreated, duration);
+        return jdbcTemplate.queryForObject(insertUserSql, int.class, dateCreated, duration, userId );
     }
 
     @Override

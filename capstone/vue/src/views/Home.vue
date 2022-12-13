@@ -2,6 +2,7 @@
 
   <div class="home" >
     <h1>Hi, {{$store.state.user.firstName}}! </h1>
+   
     
     <p class="welcome">Health is a state of body. Wellness is a state of being. Key2Fit is here to guide you into positive wellness. Start today with individual exercises, or build your own custom workout routine.</p>
 <div>

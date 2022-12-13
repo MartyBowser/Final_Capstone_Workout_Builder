@@ -14,8 +14,9 @@ public interface WorkoutDao {
    // Workout findWorkoutByName(String workoutName);
 
     //int findIdByWorkoutName(String workoutName);
+    List<Workout> getGeneratedWorkoutsByUserId(int workoutId);
 
-    int create(LocalDate dateCreated, int duration);
+    int create(LocalDate dateCreated, int duration, int userId);
 
     public void editWorkout(int workoutId, boolean completed, int duration);
 
