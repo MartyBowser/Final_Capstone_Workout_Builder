@@ -11,7 +11,6 @@ public class Workout {
 
     public Workout(int workoutId, int duration) {
         this.workoutId = workoutId;
-
         this.completed = false;
         this.duration = duration;
     }
@@ -22,11 +21,6 @@ public class Workout {
 
     public void setDateCreated(LocalDate dateCreated) {
         this.dateCreated = dateCreated;
-    }
-
-    public Workout(LocalDate dateCreated, int duration) {
-        this.dateCreated = dateCreated;
-        this.duration = duration;
     }
 
     public Workout() {

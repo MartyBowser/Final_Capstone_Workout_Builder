@@ -51,7 +51,7 @@ CREATE TABLE workout (
     exercise_id int,
     body_group_id int,
     date_created date NOT NULL,
-    duration int NOT NULL,
+    duration int,
     completed BOOLEAN NOT NULL,
     CONSTRAINT pk_workout PRIMARY KEY (workout_id),
     CONSTRAINT FK_workout_body_group FOREIGN KEY (body_group_id) REFERENCES body_group (body_group_id),
