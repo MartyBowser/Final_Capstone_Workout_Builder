@@ -33,7 +33,10 @@ export default {
     background-color: white;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     align-items: center;
-
+    background-image: url("https://images.unsplash.com/flagged/photo-1556746834-cbb4a38ee593?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTZ8fGNhcmRpbyUyMHdvcmtvdXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60");
+    background-repeat: no-repeat;
+   
+    
 }
 
 .card.read {
@@ -54,6 +57,7 @@ export default {
     margin: 0 auto;
     display: block;
     align-items: center;
+    
 }
 
 .card .exercise-description {
@@ -63,4 +67,5 @@ export default {
     font-size: 15px;
     
 }
+
 </style>
