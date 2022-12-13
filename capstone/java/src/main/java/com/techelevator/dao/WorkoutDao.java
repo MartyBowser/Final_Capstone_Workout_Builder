@@ -11,13 +11,13 @@ public interface WorkoutDao {
 
     Workout getWorkoutById(int workoutId);
 
-    Workout findWorkoutByName(String workoutName);
+   // Workout findWorkoutByName(String workoutName);
 
-    int findIdByWorkoutName(String workoutName);
+    //int findIdByWorkoutName(String workoutName);
 
     int create(LocalDate dateCreated, int duration);
 
-    public void editWorkout(int workoutId, String workoutName, int exerciseId, int bodyGroupId, int sets, int reps, int duration);
+    public void editWorkout(int workoutId, boolean completed, int duration);
 
     public void deleteWorkout(int workoutId);
 

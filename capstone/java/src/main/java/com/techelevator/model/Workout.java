@@ -4,21 +4,15 @@ import java.time.LocalDate;
 
 public class Workout {
     private int workoutId;
-    private int exerciseId;
-    private int bodyGroupId;
-    private String workoutName;
-    private int sets;
-    private int reps;
+
+    private boolean completed;
     private int duration;
     private LocalDate dateCreated;
 
-    public Workout(int workoutId, int exerciseId, int bodyGroupId, String workoutName, int sets, int reps, int duration) {
+    public Workout(int workoutId, int duration) {
         this.workoutId = workoutId;
-        this.exerciseId = exerciseId;
-        this.bodyGroupId = bodyGroupId;
-        this.workoutName = workoutName;
-        this.sets = sets;
-        this.reps = reps;
+
+        this.completed = false;
         this.duration = duration;
     }
 
@@ -46,44 +40,20 @@ public class Workout {
         this.workoutId = workoutId;
     }
 
-    public int getExerciseId() {
-        return exerciseId;
+
+
+
+
+
+
+
+
+    public boolean isCompleted() {
+        return completed;
     }
 
-    public void setExerciseId(int exerciseId) {
-        this.exerciseId = exerciseId;
-    }
-
-    public int getBodyGroupId() {
-        return bodyGroupId;
-    }
-
-    public void setBodyGroupId(int bodyGroupId) {
-        this.bodyGroupId = bodyGroupId;
-    }
-
-    public String getWorkoutName() {
-        return workoutName;
-    }
-
-    public void setWorkoutName(String workoutName) {
-        this.workoutName = workoutName;
-    }
-
-    public int getSets() {
-        return sets;
-    }
-
-    public void setSets(int sets) {
-        this.sets = sets;
-    }
-
-    public int getReps() {
-        return reps;
-    }
-
-    public void setReps(int reps) {
-        this.reps = reps;
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 
     public int getDuration() {

@@ -31,12 +31,15 @@ public class WorkoutController {
 
     @RequestMapping(value = "/workout", method = RequestMethod.POST)
     public void createWorkout(@Valid @RequestBody Workout newWorkout) {
+    /*
         try {
             Workout workout= workoutDao.findWorkoutByName(newWorkout.getWorkoutName());
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Workout Already Exists.");
         } catch (Exception e) {
+
+     */
             workoutDao.create(newWorkout.getDateCreated(), newWorkout.getDuration());
-        }
+      //  }
     }
 
     @RequestMapping(value = "/workout", method = RequestMethod.GET)
@@ -52,7 +55,7 @@ public class WorkoutController {
     //check if it already exists
     @RequestMapping(value = "/Workout", method = RequestMethod.PUT)
     public void editWorkout(@Valid @RequestBody Workout editingWorkout) {
-        workoutDao.editWorkout(editingWorkout.getWorkoutId(), editingWorkout.getWorkoutName(), editingWorkout.getExerciseId(), editingWorkout.getBodyGroupId(), editingWorkout.getSets(),editingWorkout.getReps(), editingWorkout.getDuration());
+        workoutDao.editWorkout(editingWorkout.getWorkoutId(), editingWorkout.isCompleted(), editingWorkout.getDuration());
     }
     @RequestMapping(value = "/workout/{workoutId}", method = RequestMethod.DELETE)
     public void deleteWorkout(@PathVariable int workoutId) {

@@ -20,7 +20,7 @@ public class JdbcWorkoutDao implements WorkoutDao{
     public JdbcWorkoutDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
-
+    /*
     @Override
     public int findIdByWorkoutName(String workoutName) {
         if (workoutName == null) throw new IllegalArgumentException("workout name cannot be null");
@@ -34,6 +34,8 @@ public class JdbcWorkoutDao implements WorkoutDao{
 
         return workoutId;
     }
+
+     */
        @Override
         public boolean createWorkoutIdBodyGroupId(int workoutId, int bodyGroupId){
            String insertUserSql = "INSERT INTO workout_body_group (workout_id, body_group_id) VALUES (?, ?);";
@@ -71,6 +73,7 @@ public class JdbcWorkoutDao implements WorkoutDao{
         return workouts;
     }
 
+    /*
     @Override
     public Workout findWorkoutByName(String workoutName) {
         if (workoutName == null) throw new IllegalArgumentException("Workout name cannot be null");
@@ -83,6 +86,8 @@ public class JdbcWorkoutDao implements WorkoutDao{
         throw new UsernameNotFoundException("Workout " + workoutName + " was not found.");
     }
 
+     */
+
     @Override
     public int create(LocalDate dateCreated, int duration) {
         String insertUserSql = "insert into workout (date_created, duration) values (?,?) returning workout_id";
@@ -91,11 +96,11 @@ public class JdbcWorkoutDao implements WorkoutDao{
     }
 
     @Override
-    public void editWorkout(int workoutId, String workoutName, int exerciseId, int bodyGroupId, int sets, int reps, int duration) {
-        String insertUserSql = "UPDATE workout SET workout_name = ?, exercise_id = ?, body_group_id = ?, sets = ?, reps = ?, duration = ?"  +
+    public void editWorkout(int workoutId, boolean completed, int duration) {
+        String insertUserSql = "UPDATE workout SET workout_name = ?, exercise_id = ?, body_group_id = ?, completed = ?, duration = ?"  +
                 "WHERE workout_id = ?";
 
-        jdbcTemplate.update(insertUserSql, workoutName, exerciseId, bodyGroupId, sets, reps, duration);
+        jdbcTemplate.update(insertUserSql, completed, duration);
     }
 
     @Override
@@ -110,11 +115,7 @@ public class JdbcWorkoutDao implements WorkoutDao{
     private Workout mapRowToWorkout(SqlRowSet rs) {
         Workout workout = new Workout();
         workout.setWorkoutId(rs.getInt("workout_id"));
-        workout.setExerciseId(rs.getInt("exercise_id"));
-        workout.setWorkoutName(rs.getString("workout_name"));
-        workout.setBodyGroupId(rs.getInt("body_group_id"));
-        workout.setSets(rs.getInt("sets"));
-        workout.setReps(rs.getInt("reps"));
+        workout.setCompleted(rs.getBoolean("completed"));
         workout.setDuration(rs.getInt("duration"));
         return workout;
     }
