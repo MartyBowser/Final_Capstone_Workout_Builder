@@ -3,33 +3,30 @@
   <div class="home" >
     <h1>Hi, {{$store.state.user.firstName}}! </h1>
     
-    <p class="welcome">Health is a state of body. Wellness is a state of being. Key2Fit is here to guide you into positive wellness. </p>
-    <p class="welcome">Start today with individual exercises, or build your own custom workout routine.
-    </p>
-
+    <p class="welcome">Health is a state of body. Wellness is a state of being. Key2Fit is here to guide you into positive wellness. Start today with individual exercises, or build your own custom workout routine.</p>
+<div>
+      <p class="welcome">Please select your focus area and the time for workout.</p>
+       </div>
     <!-- the 2 buttons bellow need to route to new workout and to workout history, they are NOT routed yet-->
-    
-      <button v-show="isUser||isTrainer||isAdmin" class="form-button-history" v-on:click="createExercise">
-        Your Workout History
-      </button>
-      
 
     <exercise-list />
-    <div>
-      <p>Please select your focus area and the time for workout</p>
-       
+    
     <button disabled v-show="isUser||isTrainer||isAdmin" class="form-button-start-workout" v-on:click="createExercise">
         Generate Workout
       </button>
-    </div>
+    <p> </p>
      <button v-show="isTrainer||isAdmin" class="form-button-create-exercise" v-on:click="createExercise">
         Create Exercise
       </button>
-
-
+      <p> </p>
       <button v-show="isAdmin" class="form-button-add-trainer" v-on:click="addTrainer">
         Add Trainer
       </button>
+      <p> </p>
+      <button v-show="isUser||isTrainer||isAdmin" class="form-button-history" v-on:click="createExercise">
+        Your Workout History
+      </button>
+      <p> </p>
 
       <!--<img class="home-page-logo" src="https://freesvg.org/img/1545424155.png"> -->
        

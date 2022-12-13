@@ -242,17 +242,7 @@ methods:
 </script>
 
 <style>
-.exercise-container {
-    display:flex;
-    justify-content:space-between;
-    justify-content: space-evenly;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-   -webkit-overflow-scrolling: touch;
-    padding-left: 200px;
-    margin:auto;
-   
-}
+
 
 
 </style>

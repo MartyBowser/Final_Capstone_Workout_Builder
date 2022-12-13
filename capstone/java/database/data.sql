@@ -25,6 +25,22 @@ INSERT INTO exercise (body_group_id, exercise_name, description, expected_time, 
 VALUES ('1', 'High Knees', 'Bring your knees to your chest repeatedly', '5', '0', '3', '2');
 INSERT INTO exercise (body_group_id, exercise_name, description, expected_time, suggested_weight, number_of_reps, user_id)
 VALUES ('1', 'Jumping Jacks', 'Jump up and clap your hands!', '5', '0', '3', '2');
+INSERT INTO exercise (body_group_id, exercise_name, description, expected_time, suggested_weight, number_of_reps, user_id)
+VALUES ('1', 'Test1', 'Jump up and clap your hands!', '5', '0', '3', '2');
+INSERT INTO exercise (body_group_id, exercise_name, description, expected_time, suggested_weight, number_of_reps, user_id)
+VALUES ('1', 'Test2', 'Jump up and clap your hands!', '5', '0', '3', '2');
+INSERT INTO exercise (body_group_id, exercise_name, description, expected_time, suggested_weight, number_of_reps, user_id)
+VALUES ('1', 'Test3', 'Jump up and clap your hands!', '5', '0', '3', '2');
+INSERT INTO exercise (body_group_id, exercise_name, description, expected_time, suggested_weight, number_of_reps, user_id)
+VALUES ('1', 'Test4', 'Jump up and clap your hands!', '5', '0', '3', '2');
+INSERT INTO exercise (body_group_id, exercise_name, description, expected_time, suggested_weight, number_of_reps, user_id)
+VALUES ('1', 'Test5', 'Jump up and clap your hands!', '5', '0', '3', '2');
+INSERT INTO exercise (body_group_id, exercise_name, description, expected_time, suggested_weight, number_of_reps, user_id)
+VALUES ('1', 'Test6', 'Jump up and clap your hands!', '5', '0', '3', '2');
+INSERT INTO exercise (body_group_id, exercise_name, description, expected_time, suggested_weight, number_of_reps, user_id)
+VALUES ('1', 'Test7', 'Jump up and clap your hands!', '5', '0', '3', '2');
+INSERT INTO exercise (body_group_id, exercise_name, description, expected_time, suggested_weight, number_of_reps, user_id)
+VALUES ('1', 'Test8', 'Jump up and clap your hands!', '5', '0', '3', '2');
 
 INSERT INTO exercise (body_group_id, exercise_name, description, expected_time, suggested_weight, number_of_reps, user_id)
 VALUES ('2', 'Lat Pulldowns', 'Pull the bar down toward your chest', '5', '60', '3', '2');

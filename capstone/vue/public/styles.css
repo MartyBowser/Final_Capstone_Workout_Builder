@@ -79,7 +79,10 @@
     transition: all 0.3 ease;
     cursor: pointer;
     outline-color: #f2f2f2;
-    margin-right: 5%;
+    text-align: center;
+    margin: auto;
+    display:grid;
+
   }
   .form-button-start-workout:hover,.form-button:active,.form-button:focus {
     background: #43A047;
@@ -98,6 +101,9 @@
     transition: all 0.3 ease;
     cursor: pointer;
     outline-color: #f2f2f2;
+    text-align: center;
+    margin: auto;
+    display:grid;
   }
   .form-button-history:hover,.form-button:active,.form-button:focus {
     background: #43A047;
@@ -117,6 +123,9 @@
     cursor: pointer;
     outline-color: #f2f2f2;
     margin-right: 5%;
+    text-align: center;
+    margin: auto;
+    display:grid;
 
   }
   .form-button-create-exercise:hover,.form-button:active,.form-button:focus {
@@ -136,6 +145,9 @@
     transition: all 0.3 ease;
     cursor: pointer;
     outline-color: #f2f2f2;
+    text-align: center;
+    margin: auto;
+    display:grid;
   }
   .form-button-add-trainer:hover,.form-button:active,.form-button:focus {
     background: #43A047;
@@ -273,3 +285,19 @@
       text-align: center;
       margin-top: 1%;
   }
+  /* don't touch */
+  .exercise-container {
+    display:flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+   -webkit-overflow-scrolling: touch;
+    margin:auto;
+}
+.Form-WorkoutTime{
+  position: relative;
+  margin-top: 50%;
+}
+.edit-button-exercise{
+  
+
+}

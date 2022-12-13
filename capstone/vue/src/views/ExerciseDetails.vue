@@ -1,7 +1,6 @@
 <template>
-  <div>
+  <div class="details-exercise">
       <exercise-card-full v-bind:exercise="exercise" />
-      
   </div>
 </template>
 
@@ -20,11 +19,7 @@ export default {
       )
       }
   }
-
-
 }
 </script>
-
 <style>
-
 </style>
