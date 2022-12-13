@@ -1,18 +1,15 @@
 <template>
   <div>
-   <tbody>
-          <tr v-for="exercise in $store.state.newGenerated" v-bind:key="exercise.exerciseId">
-              <td>{{exercise.exerciseName}}</td>
-              <td>{{exercise.description}}</td>
-              <td>{{exercise.bodyGroupId}}</td>        
-          </tr>        
-      </tbody>
+        <exercise-card-full v-for="exercise in $store.state.newGenerated" v-bind:key="exercise.exerciseId" v-bind:exercise="exercise"/>
   </div>
 </template>
 
-<script>
 
+
+<script>
+import ExerciseCardFull from '../components/ExerciseCardFull.vue'
 export default {
+    components: { ExerciseCardFull },
     name:"generatedWorkout"
 
 }
