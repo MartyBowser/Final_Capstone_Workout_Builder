@@ -6,14 +6,10 @@
     
     <p class="welcome">Health is a state of body. Wellness is a state of being. Key2Fit is here to guide you into positive wellness. Start today with individual exercises, or build your own custom workout routine.</p>
 <div>
-      <p class="welcome">Please select your focus area and the time for workout.</p>
-       </div>
-    <!-- the 2 buttons bellow need to route to new workout and to workout history, they are NOT routed yet-->
-
-    <exercise-list />
-    <button disabled id="generate-workout" v-show="isUser||isTrainer||isAdmin" class="form-button-start-workout" v-on:click="createExercise">
+     <!-- <p class="welcome">Please select your focus area and the time for workout.</p>
+        <button disabled id="generate-workout" v-show="isUser||isTrainer||isAdmin" class="form-button-start-workout" v-on:click="createExercise">
         Generate Workout
-      </button>
+      </button> -->
     
      <button v-show="isTrainer||isAdmin" class="form-button-create-exercise" v-on:click="createExercise">
         Create Exercise
@@ -27,6 +23,11 @@
         Your Workout History
       </button>
       <p> </p>
+       </div>
+    <!-- the 2 buttons bellow need to route to new workout and to workout history, they are NOT routed yet-->
+
+    <exercise-list />
+   
 
       <!--<img class="home-page-logo" src="https://freesvg.org/img/1545424155.png"> -->
        
