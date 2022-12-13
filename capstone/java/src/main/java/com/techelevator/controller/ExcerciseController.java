@@ -20,6 +20,7 @@ import com.techelevator.dao.UserDao;
 import com.techelevator.security.jwt.JWTFilter;
 import com.techelevator.security.jwt.TokenProvider;
 
+import java.security.Principal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,11 +35,12 @@ public class ExcerciseController {
     private ExerciseDao exerciseDao;
     private WorkoutDao workoutDao;
 
-    public ExcerciseController(TokenProvider tokenProvider, AuthenticationManagerBuilder authenticationManagerBuilder, ExerciseDao exerciseDao, WorkoutDao workoutDao) {
+    public ExcerciseController(TokenProvider tokenProvider, AuthenticationManagerBuilder authenticationManagerBuilder, ExerciseDao exerciseDao, WorkoutDao workoutDao, UserDao userDao) {
         this.tokenProvider = tokenProvider;
         this.authenticationManagerBuilder = authenticationManagerBuilder;
         this.exerciseDao = exerciseDao;
         this.workoutDao = workoutDao;
+        this.userDao = userDao;
     }
 
 
@@ -61,11 +63,11 @@ public class ExcerciseController {
     }
 
     @RequestMapping(value = "/getworkout", method = RequestMethod.POST)
-    public List<Exercise> getGeneratedExercise(@RequestBody WorkoutRequests workoutRequests) {
+    public List<Exercise> getGeneratedExercise(@RequestBody WorkoutRequests workoutRequests, Principal principal) {
         List<Exercise> listOfExercise = new ArrayList<>();
 
         listOfExercise = exerciseDao.findAllGenerate(workoutRequests.getSelectedBodyGroups(), workoutRequests.getTotalTime());
-        int workoutId = workoutDao.create(LocalDate.now(), workoutRequests.getTotalTime());
+        int workoutId = workoutDao.create(LocalDate.now(), workoutRequests.getTotalTime(), userDao.findIdByUsername(principal.getName()));
         for(int i = 0; i< listOfExercise.size(); i++){
             workoutDao.createWorkoutExercise(workoutId, listOfExercise.get(i).getExerciseId());
         }

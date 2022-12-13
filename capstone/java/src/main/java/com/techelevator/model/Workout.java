@@ -9,9 +9,20 @@ public class Workout {
     private int duration;
     private LocalDate dateCreated;
 
-    public Workout(int workoutId, int duration) {
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    int userId;
+
+    public Workout(int workoutId, int duration, int userId) {
         this.workoutId = workoutId;
         this.duration = duration;
+        this.userId = userId;
     }
 
     public LocalDate getDateCreated() {

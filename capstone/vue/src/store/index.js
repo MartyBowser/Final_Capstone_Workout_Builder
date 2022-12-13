@@ -18,18 +18,22 @@ if(currentToken != null) {
 
 export default new Vuex.Store({
   state: {
+    currentGenerated:[],
     newGenerated: [],
     exercises: [],
     token: currentToken || '',
     user: currentUser || {}
   },
-  mutations: 
+  mutations:
   {
     SET_GENERATED(state, data)
     {
       state.newGenerated = data;
     },
-  
+    SET_CURRENTGENERATED(state, data)
+    {
+      state.currentGenerated = data;
+    },
     SET_EXERCISE(state, data)
     {
       state.exercises = data;

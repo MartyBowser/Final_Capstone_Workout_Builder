@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 @RestController
@@ -20,17 +21,19 @@ public class WorkoutController {
     private final TokenProvider tokenProvider;
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
     private WorkoutDao workoutDao;
+    private UserDao userDao;
     
 
-    public WorkoutController(TokenProvider tokenProvider, AuthenticationManagerBuilder authenticationManagerBuilder, ExerciseDao exerciseDao) {
+    public WorkoutController(TokenProvider tokenProvider, AuthenticationManagerBuilder authenticationManagerBuilder, ExerciseDao exerciseDao, WorkoutDao workoutDao, UserDao userDao) {
         this.tokenProvider = tokenProvider;
         this.authenticationManagerBuilder = authenticationManagerBuilder;
         this.workoutDao = workoutDao;
+        this.userDao = userDao;
     }
 
 
     @RequestMapping(value = "/workout", method = RequestMethod.POST)
-    public void createWorkout(@Valid @RequestBody Workout newWorkout) {
+    public void createWorkout(@Valid @RequestBody Workout newWorkout, Principal principal) {
 
         try {
             Workout workout= workoutDao.getWorkoutById(newWorkout.getWorkoutId());
@@ -38,7 +41,7 @@ public class WorkoutController {
         } catch (Exception e) {
 
 
-            workoutDao.create(newWorkout.getDateCreated(), newWorkout.getDuration());
+            workoutDao.create(newWorkout.getDateCreated(), newWorkout.getDuration(), userDao.findIdByUsername(principal.getName()));
        }
     }
 
@@ -60,6 +63,14 @@ public class WorkoutController {
     @RequestMapping(value = "/workout/{workoutId}", method = RequestMethod.DELETE)
     public void deleteWorkout(@PathVariable int workoutId) {
         workoutDao.deleteWorkout(workoutId);
+    }
+
+    @RequestMapping(value = "/workoutsGenerated/{userId}", method = RequestMethod.GET)
+    public  List<Workout> getWorkoutsGenerated(@PathVariable int userId) {
+
+        List<Workout> listOfWorkout = new ArrayList<>();
+        listOfWorkout = workoutDao.getGeneratedWorkoutsByUserId(userId);
+        return listOfWorkout;
     }
 
 }
