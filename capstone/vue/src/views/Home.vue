@@ -10,11 +10,10 @@
     <!-- the 2 buttons bellow need to route to new workout and to workout history, they are NOT routed yet-->
 
     <exercise-list />
-    
     <button disabled id="generate-workout" v-show="isUser||isTrainer||isAdmin" class="form-button-start-workout" v-on:click="createExercise">
         Generate Workout
       </button>
-    <p> </p>
+    
      <button v-show="isTrainer||isAdmin" class="form-button-create-exercise" v-on:click="createExercise">
         Create Exercise
       </button>
