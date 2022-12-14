@@ -11,7 +11,7 @@ public interface ExerciseDao {
 
     Exercise findExerciseByName(String exerciseName);
 
-    List<Integer> getExercisesByWorkoutId(int workoutId);
+    List<Exercise> getExercisesByWorkoutId(int workoutId);
 
     int findIdByExerciseName(String exerciseName);
 

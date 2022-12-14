@@ -57,8 +57,8 @@ public class WorkoutController {
     }
 
     @RequestMapping(value = "/workout/{workoutId}", method = RequestMethod.GET)
-    public List<Integer> getExercisesByWorkoutId(@PathVariable int workoutId) {
-        List<Integer> listOfExercise = new ArrayList<>();
+    public List<Exercise> getExercisesByWorkoutId(@PathVariable int workoutId) {
+        List<Exercise> listOfExercise = new ArrayList<>();
 
         listOfExercise = exerciseDao.getExercisesByWorkoutId(workoutId);
 

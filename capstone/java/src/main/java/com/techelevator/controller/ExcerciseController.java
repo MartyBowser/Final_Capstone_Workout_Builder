@@ -63,11 +63,11 @@ public class ExcerciseController {
     }
 
     @RequestMapping(value = "/exercise/{exerciseId}", method = RequestMethod.GET)
-    public List<Exercise> getExerciseById(int execerciseId) {
-        List<Exercise> listOfExercise = new ArrayList<>();
+    public Exercise getExerciseById(int exerciseId) {
+        Exercise exercise = new Exercise();
 
-        listOfExercise = exerciseDao.getExerciseById();
-        return listOfExercise;
+        exercise = exerciseDao.getExerciseById(exerciseId);
+        return exercise;
     }
     @RequestMapping(value = "/getworkout", method = RequestMethod.POST)
     public List<Exercise> getGeneratedExercise(@RequestBody WorkoutRequests workoutRequests, Principal principal) {

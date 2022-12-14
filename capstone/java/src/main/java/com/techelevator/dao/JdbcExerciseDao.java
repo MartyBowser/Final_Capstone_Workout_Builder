@@ -45,14 +45,16 @@ public class JdbcExerciseDao implements ExerciseDao {
         }
     }
     @Override
-    public List<Integer> getExercisesByWorkoutId(int workoutId) {
-        List<Integer> ids = new ArrayList<>();
-        String sql = "SELECT exercise_id FROM workout_exercise WHERE workout_id = ?";
-        SqlRowSet results = jdbcTemplate.queryForObject(sql, workoutId);
+    public List<Exercise> getExercisesByWorkoutId(int workoutId) {
+        List<Exercise> exercises = new ArrayList<>();
+        String sql = "SELECT * FROM exercise\n" +
+                "JOIN workout_exercise ON workout_exercise.exercise_id = exercise.exercise_id\n" +
+                "WHERE workout_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, workoutId);
         while (results.next()) {
-            ids.add(results)
+            exercises.add(mapRowToExercise(results));
           }
-        return ids;
+        return exercises;
         }
 
     @Override
