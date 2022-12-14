@@ -2,6 +2,7 @@
 
   <div class="home" >
     <h1>Hi, {{$store.state.user.firstName}}! </h1>
+
    
     
     <p class="welcome">Health is a state of body. Wellness is a state of being. Key2Fit is here to guide you into positive wellness. Start today with individual exercises, or build your own custom workout routine.</p>
@@ -27,7 +28,9 @@
     <!-- the 2 buttons bellow need to route to new workout and to workout history, they are NOT routed yet-->
 
     <exercise-list class="exercise-list" />
+    <div class="workout-record-query">
     <workout-record/>
+    </div>
 
       <!--<img class="home-page-logo" src="https://freesvg.org/img/1545424155.png"> -->
        

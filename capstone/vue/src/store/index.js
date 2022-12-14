@@ -19,6 +19,7 @@ if(currentToken != null) {
 export default new Vuex.Store({
   state: {
     currentGenerated:[],
+    currentHistory:[],
     newGenerated: [],
     exercises: [],
     token: currentToken || '',
@@ -33,6 +34,9 @@ export default new Vuex.Store({
     SET_CURRENTGENERATED(state, data)
     {
       state.currentGenerated = data;
+    },
+    SET_CURRENTHISTORY(state, data) {
+      state.currentHistory = data;
     },
     SET_EXERCISE(state, data)
     {

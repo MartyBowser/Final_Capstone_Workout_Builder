@@ -1,6 +1,6 @@
 <template>
   <div >
-      <div v-for="currentWorkout in $store.state.currentGenerated" v-bind:key="currentWorkout.workoutId">
+      <div v-for="currentWorkout in $store.state.currentHistory" v-bind:key="currentWorkout.workoutId">
       <a>Created Date: {{currentWorkout.dateCreated}}   Duration: {{currentWorkout.duration}} </a>
        
        <a v-on:click.prevent="viewExercises(currentWorkout.workoutId)" href="#">View Exercises</a>
@@ -57,7 +57,7 @@ export default {
      getWorkouts()
     {
         workout.listWorkoutsGenerated(this.$store.state.user.id, true).then(response => {
-            this.$store.commit("SET_CURRENTGENERATED", response.data)
+            this.$store.commit("SET_CURRENTHISTORY", response.data)
         
         });
 
@@ -80,7 +80,7 @@ export default {
         this.editWorkout.workoutId = workout.workoutId;
         this.editWorkout.duration = workout.duration;
         this.editWorkout.dateCreated = workout.dateCreated;
-        this.editWorkout.completed = true;
+        this.editWorkout.completed = false;
         this.editWorkout.userId = workout.userId;    
         
         workout.editWorkout(this.editWorkout).then((response) => {
