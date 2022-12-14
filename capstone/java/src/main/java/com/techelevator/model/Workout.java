@@ -19,10 +19,11 @@ public class Workout {
 
     int userId;
 
-    public Workout(int workoutId, int duration, int userId) {
+    public Workout(int workoutId, int duration, int userId, LocalDate dateCreated) {
         this.workoutId = workoutId;
         this.duration = duration;
         this.userId = userId;
+        this.dateCreated = dateCreated;
     }
 
     public LocalDate getDateCreated() {

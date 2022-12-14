@@ -1,29 +1,33 @@
 <template>
-  <div>
-      {{$store.state.currentGenerated[0].exerciseName}}
+  <div >
+      <div v-for="workout in $store.state.currentGenerated" v-bind:key="workout.workoutId">
+      <h2 >{{workout.dateCreated}}</h2>
+      </div>
       </div>
 </template>
 
-<script>
-import workout from "../services/Workout.js"
-export default {
-name: 'workoutGen',
-created(){
-this.getWorkouts();
 
-},
-methods:
-{
-    getWorkouts()
+
+<script>
+import workout from '../services/Workout.js';
+export default {
+    name: 'workout-record',
+    
+ created()
+ {
+     this.getWorkouts();
+ },
+ methods:
+ {
+     getWorkouts()
     {
-        workout.listWorkoutsGenerated(this.$store.state.user.userId).then(response => {
-            this.$store.commit("SET_EXERCISE", response.data)
+        workout.listWorkoutsGenerated('2').then(response => {
+            this.$store.commit("SET_CURRENTGENERATED", response.data)
         
         });
 
     }
-}
-
+ }
 }
 </script>
 

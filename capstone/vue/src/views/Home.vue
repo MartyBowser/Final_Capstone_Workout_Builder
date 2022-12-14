@@ -27,7 +27,7 @@
     <!-- the 2 buttons bellow need to route to new workout and to workout history, they are NOT routed yet-->
 
     <exercise-list class="exercise-list" />
-    
+    <workout-record/>
 
       <!--<img class="home-page-logo" src="https://freesvg.org/img/1545424155.png"> -->
        
@@ -37,10 +37,10 @@
 <script>
 
 import ExerciseList from '../components/ExerciseList.vue';
-
+import WorkoutRecord from '../components/WorkoutRecord.vue'
 
 export default {
-  components: {  ExerciseList },
+  components: {  ExerciseList, WorkoutRecord },
   name: "home",
   methods: {
   createExercise()
