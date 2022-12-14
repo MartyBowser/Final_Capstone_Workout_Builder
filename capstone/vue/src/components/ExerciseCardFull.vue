@@ -1,5 +1,6 @@
 <template>
-  <div class="card">
+<div>
+  <div class="card-full">
     <h2 class="exercise-title">{{ exercise.exerciseName }}</h2>
     <h3 class="exercise-description">{{ exercise.description }}</h3>
     <h3 class="exercise-expected-time">Time: {{ exercise.expectedTime }} Mins</h3>
@@ -85,6 +86,7 @@
     <a class = "edit-button-exercise" href="#" v-show="isCanEdit" v-on:click.prevent="showForm = !showForm">{{
       showForm ? "Cancel edits" : "Edit Exercise"
     }}</a>
+  </div>
   </div>
 </template>
 
