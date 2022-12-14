@@ -10,7 +10,7 @@ export default
        return axios.get('/workout')
      },
 
-     edit(workout) {
+     editWorkout(workout) {
        return axios.put('/workout', workout)
      },
 
@@ -18,7 +18,7 @@ export default
        return axios.delete(`/exercise/${workoutId}` )
      },
 
-     listWorkoutsGenerated(userId) {
-      return axios.get(`/workoutsGenerated/${userId}`)
+     listWorkoutsGenerated(id) {
+      return axios.get(`/workoutsGenerated/${id}`)
     }
 }

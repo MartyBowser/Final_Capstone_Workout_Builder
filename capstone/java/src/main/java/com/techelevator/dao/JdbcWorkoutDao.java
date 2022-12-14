@@ -42,12 +42,15 @@ public class JdbcWorkoutDao implements WorkoutDao{
 
            return jdbcTemplate.update(insertUserSql, workoutId, bodyGroupId) == 1;
        }
+
        @Override
        public boolean createWorkoutExercise(int workoutId, int exerciseId){
            String insertUserSql = "INSERT INTO workout_exercise (workout_id, exercise_id) VALUES (?, ?)";
 
            return jdbcTemplate.update(insertUserSql, workoutId, exerciseId) == 1;
        }
+
+
     @Override
     public  Workout getWorkoutById(int workoutId) {
         String sql = "SELECT * FROM workout WHERE workout_id = ?";
@@ -59,9 +62,20 @@ public class JdbcWorkoutDao implements WorkoutDao{
         }
     }
     @Override
-    public  List<Workout> getGeneratedWorkoutsByUserId(int workoutId) {
-        List<Workout> workouts = new ArrayList<>();
-        String sql = "SELECT * FROM workout WHERE workout_id = ? AND completed = false";
+    public  List<Workout> getGeneratedWorkoutsByUserId(int userId) {
+                  List<Workout> workouts = new ArrayList<>();
+        String sql = "SELECT * FROM workout WHERE user_id = ? AND completed = false";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
+        while (results.next()) {
+            Workout workout = mapRowToWorkout(results);
+            workouts.add(workout);
+        }
+        return workouts;
+    }
+    @Override
+    public  List<Workout> getExerciseInWorkout(int workoutId) {
+           List<Workout> workouts = new ArrayList<>();
+        String sql = "SELECT exercise FROM workout_exercise WHERE workout_id = ? ";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, workoutId);
         while (results.next()) {
             Workout workout = mapRowToWorkout(results);
@@ -128,6 +142,8 @@ public class JdbcWorkoutDao implements WorkoutDao{
         workout.setWorkoutId(rs.getInt("workout_id"));
         workout.setCompleted(rs.getBoolean("completed"));
         workout.setDuration(rs.getInt("duration"));
+        LocalDate createdDate = rs.getDate("date_created").toLocalDate();
+        workout.setDateCreated(createdDate);
         return workout;
     }
 }
