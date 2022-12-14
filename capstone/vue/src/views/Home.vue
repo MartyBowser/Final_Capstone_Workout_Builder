@@ -5,15 +5,13 @@
     <div class="workout-record-query">
     <workout-record/>
     </div>
-
-   
-    
     <p class="welcome">Health is a state of body. Wellness is a state of being. Key2Fit is here to guide you into positive wellness. Start today with individual exercises, or build your own custom workout routine.</p>
 <div class="button-div">
      <!-- <p class="welcome">Please select your focus area and the time for workout.</p>
         <button disabled id="generate-workout" v-show="isUser||isTrainer||isAdmin" class="form-button-start-workout" v-on:click="createExercise">
         Generate Workout
       </button> -->
+      
     
      <button v-show="isTrainer||isAdmin" class="form-button-create-exercise" v-on:click="createExercise">
         Create Exercise
@@ -28,7 +26,8 @@
     <!-- the 2 buttons bellow need to route to new workout and to workout history, they are NOT routed yet-->
 
     <exercise-list class="exercise-list" />
-    <div class="workout-history-query">
+    <div class="workout-history-query" >
+      <p>YOUR COMPLETED WORKOUT LIST</p>
           <workout-history />
 
     </div>

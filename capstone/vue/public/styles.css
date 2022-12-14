@@ -66,6 +66,35 @@
     outline-color: #f2f2f2;
     margin-top: 1%;
   }
+  .workout-history-button{
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    background: #4CAF50;
+    width: 25%;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    margin:0 auto;
+    border-radius: 20%;
+  }
+  .delete-exercise{
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 50px;
+    background: #4CAF50;
+    width: 50%;
+    border: 10px;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    outline-color: #f2f2f2;
+    margin-top: 1%;
+  }
   .Form-WorkoutTime{
     font-family: "Roboto", sans-serif;
       text-transform: uppercase;
@@ -353,12 +382,38 @@ grid-area: buttons;
   align-items:center;
   font-size: 15px;
   padding: 1%;
-  background-color: white;
+  background-color:rgba(248, 244, 244, 0.747);
   /*background-image: url("https://images.unsplash.com/flagged/photo-1556746834-cbb4a38ee593?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTZ8fGNhcmRpbyUyMHdvcmtvdXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60");*/
   background-repeat: no-repeat;
   height:100px;
   width:100px;
   margin: 15px auto;
+}
+.pending-workout{
+  background-color: lightgoldenrodyellow;
+  color: #4CAF50;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 1%;
+  margin:1% auto;
+  height:100px;
+  width: 80%;
+  overflow-y: scroll;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.workout-history-query{
+  background-color: lightgoldenrodyellow;
+  color: #4CAF50;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 1%;
+  margin:1% auto;
+  height:100px;
+  width: 80%;
+  overflow-y: scroll;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 .card-deck{
   overflow-y:scroll;
@@ -366,7 +421,7 @@ grid-area: buttons;
   width:200px;
   height:25vh;
   margin: 5px;
-  color:#4CAF50;
+  color:white;
   background-color: white;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
@@ -404,7 +459,6 @@ background-color: #4CAF50;
 font-family: "Roboto", sans-serif;
 color: #4CAF50;
 font-size: 15px;
-
 
 }
 #cardiocard{

@@ -1,5 +1,6 @@
 <template>
-  <div >
+  <div class="pending-workout">
+      <p>YOUR PENDING WORKOUT LIST</p>
       <div v-for="currentWorkout in $store.state.currentGenerated" v-bind:key="currentWorkout.workoutId">
       <a>Created Date: {{currentWorkout.dateCreated}}   Duration: {{currentWorkout.duration}} </a>
        
