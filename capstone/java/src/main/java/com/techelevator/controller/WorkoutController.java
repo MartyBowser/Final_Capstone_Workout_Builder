@@ -6,6 +6,7 @@ import com.techelevator.dao.WorkoutDao;
 import com.techelevator.model.Exercise;
 import com.techelevator.model.Workout;
 import com.techelevator.security.jwt.TokenProvider;
+import org.springframework.boot.autoconfigure.integration.IntegrationAutoConfiguration;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +23,7 @@ public class WorkoutController {
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
     private WorkoutDao workoutDao;
     private UserDao userDao;
+    private ExerciseDao exerciseDao;
     
 
     public WorkoutController(TokenProvider tokenProvider, AuthenticationManagerBuilder authenticationManagerBuilder, ExerciseDao exerciseDao, WorkoutDao workoutDao, UserDao userDao) {
@@ -29,6 +31,7 @@ public class WorkoutController {
         this.authenticationManagerBuilder = authenticationManagerBuilder;
         this.workoutDao = workoutDao;
         this.userDao = userDao;
+        this.exerciseDao = exerciseDao;
     }
 
 
@@ -53,12 +56,19 @@ public class WorkoutController {
         return listOfWorkout;
     }
 
+    @RequestMapping(value = "/workout/{workoutId}", method = RequestMethod.GET)
+    public List<Integer> getExercisesByWorkoutId(@PathVariable int workoutId) {
+        List<Integer> listOfExercise = new ArrayList<>();
 
+        listOfExercise = exerciseDao.getExercisesByWorkoutId(workoutId);
+
+        return listOfExercise;
+    }
 
   
     @RequestMapping(value = "/Workout", method = RequestMethod.PUT)
-    public void editWorkout(@Valid @RequestBody Workout editWorkout) {
-        workoutDao.editWorkout(editWorkout.getWorkoutId(), editWorkout.isCompleted(), editWorkout.getDuration());
+    public void editWorkout(@Valid @RequestBody Workout editWorkoutIn) {
+        workoutDao.editWorkout(editWorkoutIn.getWorkoutId(), editWorkoutIn.isCompleted(), editWorkoutIn.getDuration());
     }
     @RequestMapping(value = "/workout/{workoutId}", method = RequestMethod.DELETE)
     public void deleteWorkout(@PathVariable int workoutId) {

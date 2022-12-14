@@ -2,6 +2,7 @@
   <div >
       <div v-for="workout in $store.state.currentGenerated" v-bind:key="workout.workoutId">
       <a>Created Date: {{workout.dateCreated}}   Duration: {{workout.duration}}</a>
+      
       <button>Mark Completed</button>
       </div>     
       </div>
@@ -38,7 +39,7 @@ export default {
  {
      getWorkouts()
     {
-        workout.listWorkoutsGenerated('2').then(response => {
+        workout.listWorkoutsGenerated(this.$store.state.user.id).then(response => {
             this.$store.commit("SET_CURRENTGENERATED", response.data)
         
         });

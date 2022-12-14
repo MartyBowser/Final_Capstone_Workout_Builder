@@ -19,5 +19,13 @@ export default
      },
      generateWorkout(workoutRequests){
        return axios.post('/getworkout', workoutRequests)
-     }
+     },
+     getExercisesFromWorkout(workoutId)
+     {
+      return axios.get(`/workout/${workoutId}`);
+     },
+     getExerciseById(exerciseId)
+     {
+      return axios.get(`/exercise/${exerciseId}`);
+     },
 }
