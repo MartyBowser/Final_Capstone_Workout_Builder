@@ -66,9 +66,9 @@ public class WorkoutController {
     }
 
   
-    @RequestMapping(value = "/Workout", method = RequestMethod.PUT)
-    public void editWorkout(@Valid @RequestBody Workout editWorkoutIn) {
-        workoutDao.editWorkout(editWorkoutIn.getWorkoutId(), editWorkoutIn.isCompleted(), editWorkoutIn.getDuration());
+    @RequestMapping(value = "/workout", method = RequestMethod.PUT)
+    public void editWorkout(@Valid @RequestBody Workout currentWorkout) {
+        workoutDao.editWorkout(currentWorkout.getWorkoutId(), currentWorkout.isCompleted(), currentWorkout.getDuration());
     }
     @RequestMapping(value = "/workout/{workoutId}", method = RequestMethod.DELETE)
     public void deleteWorkout(@PathVariable int workoutId) {

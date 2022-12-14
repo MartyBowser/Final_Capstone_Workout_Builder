@@ -1,9 +1,12 @@
 <template>
   <div >
-      <div v-for="workout in $store.state.currentGenerated" v-bind:key="workout.workoutId">
-      <a>Created Date: {{workout.dateCreated}}   Duration: {{workout.duration}}</a>
-      
-      <button>Mark Completed</button>
+      <div v-for="currentWorkout in $store.state.currentGenerated" v-bind:key="currentWorkout.workoutId">
+      <a>Created Date: {{currentWorkout.dateCreated}}   Duration: {{currentWorkout.duration}} </a>
+       
+       <a v-on:click.prevent="viewExercises(currentWorkout.workoutId)" href="#">View Exercises</a>
+
+       <div v-if="currentWorkout.workoutId === selectedWorkoutId"><div v-for="exercise in selectedExercises" v-bind:key="exercise.exerciseId">{{exercise.exerciseName}}  Number Of Reps:{{exercise.numberOfReps}}  </div></div>
+      <button v-on:click.prevent="markWorkoutCompleted(currentWorkout)">Mark Completed</button>
       </div>     
       </div>
 </template>
@@ -12,6 +15,7 @@
 
 <script>
 import workout from '../services/Workout.js';
+import exercise from '../services/Exercise.js'
 export default {
     data()
     {
@@ -21,11 +25,13 @@ export default {
                 workoutId:'',
                 duration:'',
                 dateCreated:'',
-                userId:this.workout.userId,
+                userId:'0',
                 completed:''
 
 
-            }
+            },
+            selectedExercises:[],
+            selectedWorkoutId:0
         }
     },
 
@@ -37,6 +43,17 @@ export default {
  },
  methods:
  {
+     markWorkoutCompleted(currentWorkout)
+     {
+         currentWorkout.completed = true;
+         workout.editWorkout(currentWorkout).then(response => {
+             if(response.status == 200)
+             {
+                 this.getWorkouts();
+             }
+         })
+
+     },
      getWorkouts()
     {
         workout.listWorkoutsGenerated(this.$store.state.user.id).then(response => {
@@ -45,12 +62,26 @@ export default {
         });
 
     },
+    viewExercises(workoutId){
+
+        this.selectedWorkoutId = workoutId;
+
+    exercise.getExercisesFromWorkout(workoutId).then(response=> {
+        if(response.status == 200)
+        {
+          this.selectedExercises = response.data;
+        }
+
+    })
+        
+    },
     update(workout)
     {
         this.editWorkout.workoutId = workout.workoutId;
         this.editWorkout.duration = workout.duration;
         this.editWorkout.dateCreated = workout.dateCreated;
-        this.editWorkout.completed = true;    
+        this.editWorkout.completed = true;
+        this.editWorkout.userId = workout.userId;    
         
         workout.editWorkout(this.editWorkout).then((response) => {
               if (response.status == 200) {
