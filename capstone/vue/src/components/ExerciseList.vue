@@ -2,7 +2,7 @@
 <div class="exercise-list-and-buttons">
     <div class="exercise-wrapper">
   <div class="exercise-container">
-      <div class="card-deck">
+      <div class ="card-deck" id="cardiocard">
           <label>Cardio</label>
           <input v-on:change="cardioSelected" type="checkbox" name="checkbox" id="cardio" v-bind:value="1" v-model="workoutRequests.selectedBodyGroups" />
 
@@ -12,7 +12,7 @@
 
       ></exercise-card></router-link>
   </div>
-    <div class="card-deck">
+    <div class="card-deck" id="backcard">
         <label>Back</label>
         <input v-on:change="backSelected" type="checkbox" name="checkbox" id="back" v-bind:value="2" v-model="workoutRequests.selectedBodyGroups"/>
     <router-link v-bind:to="{name:'exerciseDetail', params:{id:exercise.exerciseId}}" v-for="exercise in backExercise" v-bind:key="exercise.exerciseId" ><exercise-card 
@@ -22,7 +22,7 @@
       ></exercise-card></router-link>
     </div>
     
-  <div class="card-deck">
+  <div class="card-deck" id="legscard">
       <label>Legs</label>
       <input v-on:change="legsSelected" type="checkbox" name="checkbox" id = "legs" v-bind:value="3" v-model="workoutRequests.selectedBodyGroups"/>
       <router-link v-bind:to="{name:'exerciseDetail', params:{id:exercise.exerciseId}}" v-for="exercise in legsExercise" v-bind:key="exercise.exerciseId" ><exercise-card 
@@ -31,7 +31,7 @@
 
       ></exercise-card></router-link>
   </div>
-    <div class="card-deck">
+    <div class="card-deck" id="armscard">
         <label>Arms</label>
         <input v-on:change="armsSelected" type="checkbox" name="checkbox" id= "arms" v-bind:value="4" v-model="workoutRequests.selectedBodyGroups"/>
       <router-link v-bind:to="{name:'exerciseDetail', params:{id:exercise.exerciseId}}" v-for="exercise in armsExercise" v-bind:key="exercise.exerciseId" ><exercise-card 
@@ -40,7 +40,7 @@
 
       ></exercise-card></router-link>
   </div>
-  <div class="card-deck">
+  <div class="card-deck" id="abscard">
       <label>Abs</label>
       <input v-on:change="absSelected" type="checkbox" name="checkbox" id= "abs" v-bind:value="5" v-model="workoutRequests.selectedBodyGroups"/>
       <router-link v-bind:to="{name:'exerciseDetail', params:{id:exercise.exerciseId}}" v-for="exercise in absExercise" v-bind:key="exercise.exerciseId" ><exercise-card 
@@ -49,8 +49,8 @@
 
       ></exercise-card></router-link>
   </div>
-<div class="card-deck">
-      <label>Full Body</label>
+<div class="card-deck" id="fullbodycard">
+      <label>Full Body</label> 
      <input v-on:change="fullbodySelected" type="checkbox" name="checkbox" id="full-body" v-bind:value="6" v-model="workoutRequests.selectedBodyGroups"/>
       <router-link v-bind:to="{name:'exerciseDetail', params:{id:exercise.exerciseId}}" v-for="exercise in fullbodyExercise" v-bind:key="exercise.exerciseId" ><exercise-card 
             v-bind:key="exercise.exerciseId"
