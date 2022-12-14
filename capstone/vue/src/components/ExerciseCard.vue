@@ -21,51 +21,6 @@ export default {
 </script>
 
 <style>
-.card {
-    /*border: 2px solid rgb(27, 26, 26);
-    border-radius: 10px;*/
-    color: #4CAF50;
-    font-family: "Roboto", sans-serif;
-    text-align: center;
-    font-size: 15px;
-    margin: 5%;
-    padding: 10%;
-    background-color: white;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    align-items: center;
-    background-image: url("https://images.unsplash.com/flagged/photo-1556746834-cbb4a38ee593?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTZ8fGNhcmRpbyUyMHdvcmtvdXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60");
-    background-repeat: no-repeat;
-   
-    
-}
 
-.card.read {
-    background-color: lightgray;
-}
-
-.card .exercise-title {
-    color: #4CAF50;
-    text-align: center;
-    font-family: "Roboto", sans-serif;
-    text-transform: uppercase;
-    outline: 50px;
-    font-size: 15px;
-    -webkit-transition: all 0.3 ease;
-    transition: all 0.3 ease;
-    cursor: pointer;
-    outline-color: #f2f2f2;
-    margin: 0 auto;
-    display: block;
-    align-items: center;
-    
-}
-
-.card .exercise-description {
-    color:  #4CAF50;;
-    text-align: center;
-    font-family: "Roboto", sans-serif;
-    font-size: 15px;
-    
-}
 
 </style>

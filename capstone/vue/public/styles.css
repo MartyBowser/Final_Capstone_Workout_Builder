@@ -66,22 +66,39 @@
     outline-color: #f2f2f2;
     margin-top: 1%;
   }
+  .Form-WorkoutTime{
+    font-family: "Roboto", sans-serif;
+      text-transform: uppercase;
+      outline: 50px;
+      background: #4CAF50;
+      width: 30%;
+      border: 10px;
+      padding: 15px;
+      color: #FFFFFF;
+      font-size: 14px;
+      cursor: pointer;
+      outline-color: #f2f2f2;
+      text-align: center;
+      margin: 3% auto auto auto;
+      display:grid;
+  }
   .form-button-start-workout{
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     outline: 50px;
-    background:#4CAF50;
+    background: #4CAF50;
+    width: 30%;
     border: 10px;
     padding: 15px;
     color: #FFFFFF;
     font-size: 14px;
-   -webkit-transition: all 0.3 ease;
+    -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
     cursor: pointer;
     outline-color: #f2f2f2;
     text-align: center;
-    margin: 20px;
-    align-items: center;
+    display:grid;
+    margin: 3% auto auto auto;
   }
   .form-button-start-workout:hover,.form-button:active,.form-button:focus {
     background: #43A047;
@@ -293,30 +310,17 @@
   }
   /* don't touch */
   .exercise-container {
-    display:flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-   -webkit-overflow-scrolling: touch;
+   display: inline-flex;
     margin:auto;
+
 }
-.Form-WorkoutTime{
-  font-family: "Roboto", sans-serif;
-    text-transform: uppercase;
-    background: #4CAF50;
-    border: 10px;
-    padding: 15px;
-    margin: 20px;;
-    color: #FFFFFF;
-    font-size: 14px;
-   -webkit-transition: all 0.3 ease;
-    transition: all 0.3 ease;
-    cursor: pointer;
-    outline-color: #f2f2f2;
-    text-align: center;
-    display:flex;
-    flex-direction: column;
-    flex-basis: 50%;
+.exercise-wrapper{
+  width:95%;
+  overflow-x:auto;
+  margin:3%;
+  -webkit-overflow-scrolling: touch;
 }
+
 .button-div{
 display: flex;
 grid-area: buttons;
@@ -331,4 +335,62 @@ grid-area: buttons;
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+.card {
+  /*border: 2px solid rgb(27, 26, 26);
+  border-radius: 10px;*/
+  color: #4CAF50;
+  font-family: "Roboto", sans-serif;
+  align-items:center;
+  font-size: 15px;
+  padding: 1%;
+  background-color: lightgray;
+  /*background-image: url("https://images.unsplash.com/flagged/photo-1556746834-cbb4a38ee593?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTZ8fGNhcmRpbyUyMHdvcmtvdXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60");*/
+  background-repeat: no-repeat;
+  height:100px;
+  width:100px;
+  margin: 15px auto;
+}
+.card-deck{
+  overflow-y:scroll;
+  overflow-x:hidden;
+  width:200px;
+  height:25vh;
+  margin: 5px;
+  color:#4CAF50;
+  background-color: white;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.card.read {
+  background-color: lightgray;
+}
+
+.card .exercise-title {
+  color: #4CAF50;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  font-size: 15px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  outline-color: #f2f2f2;
+  display: block;
+  text-align: center;
+}
+
+.card .exercise-description {
+  color:  #4CAF50;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+}
+.card-full{
+  background-color: white;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  text-align: center;
+}
+.details-exercise{
+background-color: #4CAF50;
+font-family: "Roboto", sans-serif;
 }
