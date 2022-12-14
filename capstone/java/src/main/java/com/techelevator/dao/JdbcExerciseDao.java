@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 @Component
 public class JdbcExerciseDao implements ExerciseDao {
     private final JdbcTemplate jdbcTemplate;
@@ -43,6 +44,18 @@ public class JdbcExerciseDao implements ExerciseDao {
             return null;
         }
     }
+    @Override
+    public List<Exercise> getExercisesByWorkoutId(int workoutId) {
+        List<Exercise> exercises = new ArrayList<>();
+        String sql = "SELECT * FROM exercise\n" +
+                "JOIN workout_exercise ON workout_exercise.exercise_id = exercise.exercise_id\n" +
+                "WHERE workout_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, workoutId);
+        while (results.next()) {
+            exercises.add(mapRowToExercise(results));
+          }
+        return exercises;
+        }
 
     @Override
     public List<Exercise> findAll() {
