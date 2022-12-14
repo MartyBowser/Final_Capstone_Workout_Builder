@@ -37,7 +37,8 @@
 <script>
 
 import ExerciseList from '../components/ExerciseList.vue';
-import WorkoutRecord from '../components/WorkoutRecord.vue'
+import WorkoutRecord from '../components/WorkoutRecord.vue';
+//import WorkoutHistory from '../components/WorkoutHistory.vue';
 
 export default {
   components: {  ExerciseList, WorkoutRecord },

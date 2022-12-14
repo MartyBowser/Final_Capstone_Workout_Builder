@@ -18,7 +18,7 @@ export default
        return axios.delete(`/exercise/${workoutId}` )
      },
 
-     listWorkoutsGenerated(id) {
-      return axios.get(`/workoutsGenerated/${id}`)
+     listWorkoutsGenerated(id, completed) {
+      return axios.get(`/workoutsGenerated/${id}/completed=${completed}`)
     }
 }

@@ -6,7 +6,7 @@
        <a v-on:click.prevent="viewExercises(currentWorkout.workoutId)" href="#">View Exercises</a>
 
        <div v-if="currentWorkout.workoutId === selectedWorkoutId"><div v-for="exercise in selectedExercises" v-bind:key="exercise.exerciseId">{{exercise.exerciseName}}  Number Of Reps:{{exercise.numberOfReps}}  </div></div>
-      <button v-on:click.prevent="markWorkoutCompleted(currentWorkout)">Mark Completed</button>
+      <button v-on:click.prevent="retakeWorkout(currentWorkout)">Move to Queue</button>
       </div>     
       </div>
 </template>
@@ -35,7 +35,7 @@ export default {
         }
     },
 
-    name: 'workout-record',
+    name: 'workout-history',
     
  created()
  {
@@ -43,9 +43,9 @@ export default {
  },
  methods:
  {
-     markWorkoutCompleted(currentWorkout)
+     retakeWorkout(currentWorkout)
      {
-         currentWorkout.completed = true;
+         currentWorkout.completed = false;
          workout.editWorkout(currentWorkout).then(response => {
              if(response.status == 200)
              {
@@ -56,7 +56,7 @@ export default {
      },
      getWorkouts()
     {
-        workout.listWorkoutsGenerated(this.$store.state.user.id, false).then(response => {
+        workout.listWorkoutsGenerated(this.$store.state.user.id, true).then(response => {
             this.$store.commit("SET_CURRENTGENERATED", response.data)
         
         });

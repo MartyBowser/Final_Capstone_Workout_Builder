@@ -62,10 +62,10 @@ public class JdbcWorkoutDao implements WorkoutDao{
         }
     }
     @Override
-    public  List<Workout> getGeneratedWorkoutsByUserId(int userId) {
+    public  List<Workout> getGeneratedWorkoutsByUserId(int userId, boolean completed) {
                   List<Workout> workouts = new ArrayList<>();
-        String sql = "SELECT * FROM workout WHERE user_id = ? AND completed = false";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
+        String sql = "SELECT * FROM workout WHERE user_id = ? AND completed = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId, completed);
         while (results.next()) {
             Workout workout = mapRowToWorkout(results);
             workouts.add(workout);

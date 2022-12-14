@@ -75,11 +75,11 @@ public class WorkoutController {
         workoutDao.deleteWorkout(workoutId);
     }
 
-    @RequestMapping(value = "/workoutsGenerated/{userId}", method = RequestMethod.GET)
-    public  List<Workout> getWorkoutsGenerated(@PathVariable int userId) {
+    @RequestMapping(value = "/workoutsGenerated/{userId}/completed={completed}", method = RequestMethod.GET)
+    public  List<Workout> getWorkoutsGenerated(@PathVariable int userId, @PathVariable boolean completed) {
 
         List<Workout> listOfWorkout = new ArrayList<>();
-        listOfWorkout = workoutDao.getGeneratedWorkoutsByUserId(userId);
+        listOfWorkout = workoutDao.getGeneratedWorkoutsByUserId(userId, completed);
         return listOfWorkout;
     }
 
