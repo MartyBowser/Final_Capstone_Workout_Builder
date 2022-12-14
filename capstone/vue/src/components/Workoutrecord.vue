@@ -60,6 +60,10 @@ export default {
             this.$store.commit("SET_CURRENTGENERATED", response.data)
         
         });
+        workout.listWorkoutsGenerated(this.$store.state.user.id, true).then(response => {
+            this.$store.commit("SET_CURRENTHISTORY", response.data)
+        
+        });
 
     },
     viewExercises(workoutId){

@@ -270,8 +270,17 @@
       grid-template-areas: 
       "user-greetings"
       "welcome"
+      "workout-record"
       "buttons"
-      "exercise-list";
+      "exercise-list"
+      "workout-history"
+      ;
+  }
+  .workout-history-query {
+    grid-area: workout-history;
+  }
+  .workout-record-query {
+    grid-area: workout-record;
   }
   #nav a {
     color: white;

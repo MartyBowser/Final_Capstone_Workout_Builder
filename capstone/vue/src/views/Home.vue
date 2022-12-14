@@ -2,6 +2,9 @@
 
   <div class="home" >
     <h1>Hi, {{$store.state.user.firstName}}! </h1>
+    <div class="workout-record-query">
+    <workout-record/>
+    </div>
 
    
     
@@ -20,16 +23,14 @@
         Add Trainer
       </button>
       <p> </p>
-      <button v-show="isUser||isTrainer||isAdmin" class="form-button-history" v-on:click="createExercise">
-        Your Workout History
-      </button>
-      <p> </p>
+      
        </div>
     <!-- the 2 buttons bellow need to route to new workout and to workout history, they are NOT routed yet-->
 
     <exercise-list class="exercise-list" />
-    <div class="workout-record-query">
-    <workout-record/>
+    <div class="workout-history-query">
+          <workout-history />
+
     </div>
 
       <!--<img class="home-page-logo" src="https://freesvg.org/img/1545424155.png"> -->
@@ -40,11 +41,11 @@
 <script>
 
 import ExerciseList from '../components/ExerciseList.vue';
+import WorkoutHistory from '../components/WorkoutHistory.vue';
 import WorkoutRecord from '../components/WorkoutRecord.vue';
-//import WorkoutHistory from '../components/WorkoutHistory.vue';
 
 export default {
-  components: {  ExerciseList, WorkoutRecord },
+  components: {  ExerciseList, WorkoutRecord, WorkoutHistory },
   name: "home",
   methods: {
   createExercise()
