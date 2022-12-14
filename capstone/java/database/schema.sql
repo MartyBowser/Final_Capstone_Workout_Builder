@@ -29,7 +29,7 @@ CREATE TABLE exercise (
     exercise_id SERIAL,
     body_group_id int NOT NULL,
     exercise_name varchar (100) NOT NULL UNIQUE,
-    description varchar (500) NOT NULL,
+    description varchar (50000) NOT NULL,
     expected_time int NOT NULL,
     suggested_weight int,
     number_of_reps int,
