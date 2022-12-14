@@ -10,7 +10,7 @@ export default
        return axios.get('/workout')
      },
 
-     edit(workout) {
+     editWorkout(workout) {
        return axios.put('/workout', workout)
      },
 

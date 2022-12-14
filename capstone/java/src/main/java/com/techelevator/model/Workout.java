@@ -8,6 +8,7 @@ public class Workout {
     private boolean completed = false;
     private int duration;
     private LocalDate dateCreated;
+    int userId;
 
     public int getUserId() {
         return userId;
@@ -17,7 +18,7 @@ public class Workout {
         this.userId = userId;
     }
 
-    int userId;
+
 
     public Workout(int workoutId, int duration, int userId, LocalDate dateCreated) {
         this.workoutId = workoutId;
