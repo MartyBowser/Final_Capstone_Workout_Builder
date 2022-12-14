@@ -1,12 +1,8 @@
 <template >
 
   <div class="home" >
-<<<<<<< HEAD
-    <h1 class="user-greetings">Hi, {{$store.state.user.firstName}}! </h1>
-=======
     <h1>Hi, {{$store.state.user.firstName}}! </h1>
    
->>>>>>> f3f47f5c97174374ab665adf2a80b09199a9f2db
     
     <p class="welcome">Health is a state of body. Wellness is a state of being. Key2Fit is here to guide you into positive wellness. Start today with individual exercises, or build your own custom workout routine.</p>
 <div class="button-div">
