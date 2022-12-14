@@ -84,7 +84,7 @@
     <button v-show="isCanEdit" v-on:click="deleteExercise" class="delete-exercise" >Delete Exercise</button>
     <p> </p>
     <a class = "edit-button-exercise" href="#" v-show="isCanEdit" v-on:click.prevent="showForm = !showForm">{{
-      showForm ? "Cancel edits" : "Edit Exercise"
+      showForm ? "Cancel Edits" : "Edit Exercise"
     }}</a>
   </div>
   </div>

@@ -344,7 +344,7 @@ grid-area: buttons;
   align-items:center;
   font-size: 15px;
   padding: 1%;
-  background-color: lightgray;
+  background-color: white;
   /*background-image: url("https://images.unsplash.com/flagged/photo-1556746834-cbb4a38ee593?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTZ8fGNhcmRpbyUyMHdvcmtvdXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60");*/
   background-repeat: no-repeat;
   height:100px;
@@ -393,6 +393,10 @@ grid-area: buttons;
 .details-exercise{
 background-color: #4CAF50;
 font-family: "Roboto", sans-serif;
+color: #4CAF50;
+font-size: 15px;
+
+
 }
 #cardiocard{
   background-image: url("https://images.unsplash.com/flagged/photo-1556746834-cbb4a38ee593?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTZ8fGNhcmRpbyUyMHdvcmtvdXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60");
