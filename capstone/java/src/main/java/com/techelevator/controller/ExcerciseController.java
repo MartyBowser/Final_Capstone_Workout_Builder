@@ -62,6 +62,13 @@ public class ExcerciseController {
         return listOfExercise;
     }
 
+    @RequestMapping(value = "/exercise/{exerciseId}", method = RequestMethod.GET)
+    public Exercise getExerciseById(int exerciseId) {
+        Exercise exercise = new Exercise();
+
+        exercise = exerciseDao.getExerciseById(exerciseId);
+        return exercise;
+    }
     @RequestMapping(value = "/getworkout", method = RequestMethod.POST)
     public List<Exercise> getGeneratedExercise(@RequestBody WorkoutRequests workoutRequests, Principal principal) {
         List<Exercise> listOfExercise = new ArrayList<>();

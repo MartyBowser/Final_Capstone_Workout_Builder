@@ -11,6 +11,8 @@ public interface ExerciseDao {
 
     Exercise findExerciseByName(String exerciseName);
 
+    List<Exercise> getExercisesByWorkoutId(int workoutId);
+
     int findIdByExerciseName(String exerciseName);
 
     boolean create(String exerciseName, String description, int bodyGroupId, int userId, int expectedTime, int suggestedWeight, int numberOfReps);

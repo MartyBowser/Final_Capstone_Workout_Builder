@@ -122,10 +122,10 @@ public class JdbcWorkoutDao implements WorkoutDao{
 
     @Override
     public void editWorkout(int workoutId, boolean completed, int duration) {
-        String insertUserSql = "UPDATE workout SET workout_name = ?, exercise_id = ?, body_group_id = ?, completed = ?, duration = ?"  +
+        String insertUserSql = "UPDATE workout SET completed = ?, duration = ?"  +
                 "WHERE workout_id = ?";
 
-        jdbcTemplate.update(insertUserSql, completed, duration);
+        jdbcTemplate.update(insertUserSql, completed, duration, workoutId);
     }
 
     @Override
