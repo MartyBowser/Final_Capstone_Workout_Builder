@@ -137,17 +137,17 @@ public class JdbcWorkoutDao implements WorkoutDao{
     }
 
     @Override
-    public void addCompletion() {
-        String sql = "INSERT INTO completion (completion) VALUES (null)";
+    public void addCompletion(String completion) {
+        String sql = "INSERT INTO completion (completion) VALUES (?)";
 
-        jdbcTemplate.update(sql);
+        jdbcTemplate.update(sql, completion);
     }
 
-    public int findCompletionCount() {
+    public int findCompletionCount(String completion) {
         int completions = 0;
-        String sql = "select COUNT(*) from completion";
+        String sql = "select COUNT(*) from completion WHERE completion = ?";
 
-        completions = jdbcTemplate.queryForObject(sql, Integer.class);
+        completions = jdbcTemplate.queryForObject(sql, Integer.class, completion);
 
         return completions;
     }

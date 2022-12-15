@@ -90,10 +90,7 @@ export default {
         workout.editWorkout(this.editWorkout).then((response) => {
               if (response.status == 200) {
                   this.getWorkouts();
-                 /* this.$router.push({
-                      path: '/',
-                      query: {edit: 'success'}
-                  })*/
+                
               }
           })
     }

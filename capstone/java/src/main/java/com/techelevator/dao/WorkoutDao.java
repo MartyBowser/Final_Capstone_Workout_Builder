@@ -29,8 +29,8 @@ public interface WorkoutDao {
 
     boolean createWorkoutExercise(int workoutId, int exerciseId);
 
-    void addCompletion();
+    void addCompletion(String completion);
 
-    int findCompletionCount();
+    int findCompletionCount(String completion);
 
 }

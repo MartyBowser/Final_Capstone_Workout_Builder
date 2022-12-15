@@ -86,7 +86,7 @@ CREATE TABLE workout_body_group (
 
 CREATE TABLE completion (
     completion_id SERIAL,
-    completion int,
+    completion varchar(50),
     CONSTRAINT PK_completion PRIMARY KEY (completion_id)
 );
 

@@ -4,7 +4,7 @@
   <div class="exercise-container">
       <div class ="card-deck" id="cardiocard">
           <label>Cardio</label>
-          <input v-on:change="cardioSelected" type="checkbox" name="checkbox" id="cardio" v-bind:value="1" v-model="workoutRequests.selectedBodyGroups" />
+          <input v-on:change="cardioSelectedGenerate" type="checkbox" name="checkbox" id="cardio" v-bind:value="1" v-model="workoutRequests.selectedBodyGroups" />
 
       <router-link v-bind:to="{name:'exerciseDetail', params:{id:exercise.exerciseId}}" v-for="exercise in cardioExercise" v-bind:key="exercise.exerciseId" ><exercise-card 
             v-bind:key="exercise.exerciseId"
@@ -69,7 +69,7 @@
     <option value="3">45 Minutes</option>
     <option value="4">60 Minutes</option>
     </select>
-    <button v-on:click="generateWorkoutClicked" id="generate-workou"  class="form-button-start-workout" >
+    <button disabled v-on:click="generateWorkoutClicked" id="generate-workou"  class="form-button-start-workout" >
         Generate Workout
       </button>
     </div>
@@ -102,7 +102,9 @@ export default {
 
     },
     computed: {
-      cardioExercise() {
+
+     
+     cardioExercise() {
           return this.$store.state.exercises.filter(
               (exercise) => {
                   return (exercise.bodyGroupId == 1) 
@@ -165,6 +167,11 @@ this.getExercises();
 }, 
 methods:
 {
+    cardioSelectedGenerate()
+    {
+        this.cardioSelected();
+        this.canClickGenerated();
+    },
     generateWorkoutClicked()
     {
          exercise.generateWorkout(this.workoutRequests).then(response => {

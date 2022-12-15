@@ -57,6 +57,10 @@ export default {
   },
     
   },
+  created()
+  {
+    
+  },
   computed:
   {
     pendingWorkoutCount()

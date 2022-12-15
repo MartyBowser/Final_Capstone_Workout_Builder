@@ -85,13 +85,13 @@ public class WorkoutController {
     }
 
     @RequestMapping(value = "/completion", method = RequestMethod.POST)
-    public void postCompletion() {
-        workoutDao.addCompletion();
+    public void postCompletion(Principal principal) {
+        workoutDao.addCompletion(principal.getName());
     }
 
     @RequestMapping(value = "/completion", method = RequestMethod.GET)
-    public int countCompletions() {
-        return workoutDao.findCompletionCount();
+    public int countCompletions(Principal principal) {
+        return workoutDao.findCompletionCount(principal.getName());
     }
 
 }
