@@ -1,9 +1,9 @@
 <template>
   <div >
-      <div v-for="currentWorkout in $store.state.currentHistory" v-bind:key="currentWorkout.workoutId">
-      <a>Created Date: {{currentWorkout.dateCreated}}   Duration: {{currentWorkout.duration}} </a>
+      <div class="current-workout-layout" v-for="currentWorkout in $store.state.currentHistory" v-bind:key="currentWorkout.workoutId">
+      <a>Workout Created Date: {{currentWorkout.dateCreated}}</a>
        
-       <a class="view-ex-button" v-on:click.prevent="viewExercises(currentWorkout.workoutId)" href="#">View Exercises</a>
+       <a class="view-ex-button" v-on:click.prevent="viewExercises(currentWorkout.workoutId)" href="#">View your selected exercises here</a>
 
        <div v-if="currentWorkout.workoutId === selectedWorkoutId"><div v-for="exercise in selectedExercises" v-bind:key="exercise.exerciseId">{{exercise.exerciseName}}  Number Of Reps:{{exercise.numberOfReps}}  </div></div>
       <button class="workout-history-button" v-on:click.prevent="retakeWorkout(currentWorkout)">Move to Queue</button>
