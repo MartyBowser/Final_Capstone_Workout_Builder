@@ -45,7 +45,7 @@
     font-style: italic;
     font-weight: bold;
     font-family: "Roboto", sans-serif;
-    font-size: 15px;
+    font-size: 19px;
     margin-top: 1%;
     grid-area: welcome;
     text-align: center;
@@ -426,6 +426,12 @@ padding-top: 3%;
   overflow-y: scroll;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
+.pending-workout a{
+  margin-right: 10%;
+}
+.current-workout-layout a{
+  margin-right: 10%;
+}
 .view-ex-button{
   color: lightsteelblue;
   font-family: "Roboto", sans-serif;
@@ -516,7 +522,6 @@ padding-top: 3%;
   font-size: 20px;
 }
 .details-exercise{
-background-color: #4CAF50;
 font-family: "Roboto", sans-serif;
 color: #4CAF50;
 font-size: 15px;
@@ -568,4 +573,7 @@ font-size: 15px;
   height: 240px;
   width: 240px;
   background-position: center;
+}
+.edit-button-exercise{
+  color:lightsteelblue;
 }
