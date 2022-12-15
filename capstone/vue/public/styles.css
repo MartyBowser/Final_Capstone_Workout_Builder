@@ -16,6 +16,9 @@
     text-align: center;
     margin-top: 1%;
   }
+  .greeting{
+    font-style: italic;
+  }
   .form-signin {
     position: relative;
     z-index: 1;
@@ -39,10 +42,13 @@
     font-size: 14px;
   }
   .welcome{
+    font-style: italic;
+    font-weight: bold;
     font-family: "Roboto", sans-serif;
     font-size: 15px;
     margin-top: 1%;
     grid-area: welcome;
+    text-align: center;
   }
   .alert alert-success{
     font-family: "Roboto", sans-serif;
@@ -70,14 +76,27 @@
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     background: #4CAF50;
-    width: 25%;
+    width: 15%;
     color: #FFFFFF;
     font-size: 14px;
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
     cursor: pointer;
     margin:0 auto;
-    border-radius: 20%;
+    
+  }
+  .workout-record-button{
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    background: #4CAF50;
+    width: 15%;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    margin:0 auto;
+    
   }
   .delete-exercise{
     font-family: "Roboto", sans-serif;
@@ -277,6 +296,11 @@
       max-width: 50%;
       padding: 10%;
   }
+  .homepage {
+   
+    max-width: 3%;
+    padding: 0%;
+}
   .home-page-logo{
     max-width: 12%;
     text-align: center;
@@ -284,7 +308,8 @@
     bottom: 20%;
   }
   body {
-    background: #76b852; /* fallback for old browsers */
+    background-image: url("");
+    background: #76b852; 
     background: rgb(141,194,111);
     background: linear-gradient(90deg, rgba(141,194,111,1) 0%, rgba(118,184,82,1) 50%);
     font-family: "Roboto", sans-serif;

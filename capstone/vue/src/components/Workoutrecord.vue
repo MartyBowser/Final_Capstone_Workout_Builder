@@ -1,15 +1,14 @@
 <template>
   <div class="pending-workout">
-      <p>YOUR PENDING WORKOUT LIST</p>
+      <p>Good luck!!! {{$store.state.currentGenerated.length}} workouts in your queue</p>
       <div v-for="currentWorkout in $store.state.currentGenerated" v-bind:key="currentWorkout.workoutId">
       <a>Created Date: {{currentWorkout.dateCreated}}   Duration: {{currentWorkout.duration}} </a>
        
-       <a v-on:click.prevent="viewExercises(currentWorkout.workoutId); showForm = !showForm" href="#"><a v-if="showForm === true">{{
-      showForm ? "Hide exercises" : "View exercises"
-    }}</a></a>
+       <a v-on:click.prevent="viewExercises(currentWorkout.workoutId)" href="#">View exercises
+     </a>
 
        <div v-if="currentWorkout.workoutId === selectedWorkoutId"><div v-for="exercise in selectedExercises" v-bind:key="exercise.exerciseId">{{exercise.exerciseName}}  Number Of Reps:{{exercise.numberOfReps}}  </div></div>
-      <button v-on:click.prevent="markWorkoutCompleted(currentWorkout)">Mark Completed</button>
+      <button class="workout-record-button" v-on:click.prevent="markWorkoutCompleted(currentWorkout)">Mark Completed</button>
       </div>     
       </div>
 </template>
@@ -35,7 +34,7 @@ export default {
             },
             selectedExercises:[],
             selectedWorkoutId:0,
-            showForm: true,
+            
         }
     },
 
@@ -54,6 +53,7 @@ export default {
              if(response.status == 200)
              {
                  this.getWorkouts();
+                 this.$store.state
              }
          })
 

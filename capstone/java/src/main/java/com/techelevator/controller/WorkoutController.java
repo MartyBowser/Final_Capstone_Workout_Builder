@@ -46,6 +46,7 @@ public class WorkoutController {
 
             workoutDao.create(newWorkout.getDateCreated(), newWorkout.getDuration(), userDao.findIdByUsername(principal.getName()));
        }
+
     }
 
     @RequestMapping(value = "/workout", method = RequestMethod.GET)

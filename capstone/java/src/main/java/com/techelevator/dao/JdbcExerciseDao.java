@@ -95,7 +95,7 @@ public class JdbcExerciseDao implements ExerciseDao {
         ArrayList<Exercise> newexercises = new ArrayList<>();
 
         for(int i = 0; i < generatedList.size(); i++) {
-            newexercises.add(generatedList.get(i).get(1));
+            newexercises.add(generatedList.get(i).get(getRandomeNumber(1,5)));
         }
         return newexercises;
     }
@@ -147,5 +147,10 @@ public class JdbcExerciseDao implements ExerciseDao {
         exercise.setSuggestedWeight(rs.getInt("suggested_weight"));
         exercise.setNumberOfReps(rs.getInt("number_of_reps"));
         return exercise;
+    }
+
+    private int getRandomeNumber(int min, int max)
+    {
+        return (int) ((Math.random() * (max-min)) + min);
     }
 }

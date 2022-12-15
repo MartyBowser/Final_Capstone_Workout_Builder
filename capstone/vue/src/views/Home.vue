@@ -1,11 +1,13 @@
 <template >
 
   <div class="home" >
-    <h1>Hi, {{$store.state.user.firstName}}! </h1>
+    
+    <h1 class="greeting"><img class="homepage" src="https://freesvg.org/img/1545424155.png"> Hi, {{$store.state.user.firstName}}! </h1>
+   
     <div class="workout-record-query">
     <workout-record/>
     </div>
-    <p class="welcome">Health is a state of body. Wellness is a state of being. Key2Fit is here to guide you into positive wellness. Start today with individual exercises, or build your own custom workout routine.</p>
+    <blockquote class="welcome">"Health is a state of body. Wellness is a state of being. Key2Fit is here to guide you into positive wellness. Start today with individual exercises, or build your own custom workout routine."</blockquote>
 <div class="button-div">
      <!-- <p class="welcome">Please select your focus area and the time for workout.</p>
         <button disabled id="generate-workout" v-show="isUser||isTrainer||isAdmin" class="form-button-start-workout" v-on:click="createExercise">
@@ -27,7 +29,7 @@
 
     <exercise-list class="exercise-list" />
     <div class="workout-history-query" >
-      <p>YOUR COMPLETED WORKOUT LIST</p>
+      <p>Great Job!!! you've completed {{$store.state.currentHistory.length}} workouts </p>
           <workout-history />
 
     </div>
@@ -57,6 +59,10 @@ export default {
   },
   computed:
   {
+    pendingWorkoutCount()
+    {
+      return this.$store.state.currentGenerated.length();
+    },
 isUser(){
     if(this.$store.state.user.authorities[0].name==="ROLE_USER")
     {return true }
