@@ -382,7 +382,8 @@
   overflow-x:auto;
   margin:3%;
   -webkit-overflow-scrolling: touch;
-}
+  display: flex;
+  justify-content: center;}
 
 .button-div{
 display: flex;
