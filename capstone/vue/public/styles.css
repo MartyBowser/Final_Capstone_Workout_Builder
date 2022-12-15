@@ -386,6 +386,7 @@ grid-area: buttons;
   outline-color: #f2f2f2;
   display: block;
   text-align: center;
+  background-color: white;
 }
 
 .card .exercise-description {

@@ -83,4 +83,14 @@ public class WorkoutController {
         return listOfWorkout;
     }
 
+    @RequestMapping(value = "/completion", method = RequestMethod.POST)
+    public void postCompletion() {
+        workoutDao.addCompletion();
+    }
+
+    @RequestMapping(value = "/completion", method = RequestMethod.GET)
+    public int countCompletions() {
+        return workoutDao.findCompletionCount();
+    }
+
 }

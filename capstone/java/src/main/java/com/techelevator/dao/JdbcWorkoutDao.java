@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.Completion;
 import com.techelevator.model.Exercise;
 import com.techelevator.model.Workout;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -134,6 +135,23 @@ public class JdbcWorkoutDao implements WorkoutDao{
 
         jdbcTemplate.update(deleteUserSql, workoutId);
     }
+
+    @Override
+    public void addCompletion() {
+        String sql = "INSERT INTO completion (completion) VALUES (null)";
+
+        jdbcTemplate.update(sql);
+    }
+
+    public int findCompletionCount() {
+        int completions = 0;
+        String sql = "select COUNT(*) from completion";
+
+        completions = jdbcTemplate.queryForObject(sql, Integer.class);
+
+        return completions;
+    }
+
 
 
 

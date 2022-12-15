@@ -1,5 +1,6 @@
 BEGIN TRANSACTION;
 
+DROP TABLE IF EXISTS completion;
 DROP TABLE IF EXISTS workout_body_group;
 DROP TABLE IF EXISTS workout_history;
 DROP TABLE IF EXISTS workout_exercise;
@@ -81,6 +82,12 @@ CREATE TABLE workout_body_group (
     body_group_id int NOT NULL,
     CONSTRAINT FK_workout_body_group_workout FOREIGN KEY (workout_id) REFERENCES workout (workout_id),
     CONSTRAINT FK_workout_body_group_body_group FOREIGN KEY (body_group_id) REFERENCES body_group (body_group_id)
+);
+
+CREATE TABLE completion (
+    completion_id SERIAL,
+    completion int,
+    CONSTRAINT PK_completion PRIMARY KEY (completion_id)
 );
 
 COMMIT TRANSACTION;
