@@ -65,7 +65,7 @@
     border: 10px;
     padding: 15px;
     color: #FFFFFF;
-    font-size: 14px;
+    font-size: 13px;
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
     cursor: pointer;
@@ -76,27 +76,23 @@
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     background: #4CAF50;
-    width: 15%;
     color: #FFFFFF;
-    font-size: 14px;
+    font-size: 13px;
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
     cursor: pointer;
-    margin:0 auto;
-    
+    text-align: center;
+    margin-left: 15px;
   }
   .workout-record-button{
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     background: #4CAF50;
-    width: 15%;
     color: #FFFFFF;
-    font-size: 14px;
+    font-size: 12px;
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
     cursor: pointer;
-    margin:0 auto;
-    
   }
   .delete-exercise{
     font-family: "Roboto", sans-serif;
@@ -127,7 +123,7 @@
       cursor: pointer;
       outline-color: #f2f2f2;
       text-align: center;
-      margin: 3% auto auto auto;
+      margin: 0 auto auto auto;
       display:grid;
   }
   .form-button-start-workout{
@@ -146,7 +142,7 @@
     outline-color: #f2f2f2;
     text-align: center;
     display:grid;
-    margin: 3% auto auto auto;
+    margin: 0 auto auto auto;
   }
   .form-button-start-workout:hover,.form-button:active,.form-button:focus {
     background: #43A047;
@@ -388,6 +384,7 @@
 .button-div{
 display: flex;
 grid-area: buttons;
+padding-top: 3%;
 }
 .exercise-list{
   grid-area: exercise-list;
@@ -399,6 +396,8 @@ grid-area: buttons;
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding-top: 1px;
+  padding-bottom: 3%;
 }
 .card {
   /*border: 2px solid rgb(27, 26, 26);
@@ -420,24 +419,28 @@ grid-area: buttons;
   color: #4CAF50;
   font-family: "Roboto", sans-serif;
   font-weight: bold;
-  font-size: 16px;
-  padding: 1%;
-  margin:1% auto;
+  font-size: 15px;
+  margin:0 auto;
   height:100px;
-  width: 80%;
+  width: 900px;
   overflow-y: scroll;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
+.view-ex-button{
+  color: lightsteelblue;
+  font-family: "Roboto", sans-serif;
+  margin-right: 200px;
+}
+
 .workout-history-query{
   background-color: lightgoldenrodyellow;
   color: #4CAF50;
   font-family: "Roboto", sans-serif;
   font-weight: bold;
-  font-size: 16px;
-  padding: 1%;
-  margin:1% auto;
+  font-size: 15px;
+  margin:0 auto;
   height:100px;
-  width: 80%;
+  width: 900px;
   overflow-y: scroll;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
@@ -480,6 +483,37 @@ grid-area: buttons;
   background-color: white;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   text-align: center;
+  color:  #4CAF50;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  max-width:75%;
+  margin: 0 auto;
+  
+}
+.exercise-title{
+  color:  #4CAF50;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+  text-transform: uppercase;
+}
+.exercise-expected-time{
+  color:  #4CAF50;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+}
+.exercise-suggested-time{
+  color:  #4CAF50;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+}
+.exercise-number-of-reps{
+  color:  #4CAF50;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
 }
 .details-exercise{
 background-color: #4CAF50;
@@ -534,5 +568,4 @@ font-size: 15px;
   height: 240px;
   width: 240px;
   background-position: center;
-  
 }
