@@ -20,5 +20,14 @@ export default
 
      listWorkoutsGenerated(id, completed) {
       return axios.get(`/workoutsGenerated/${id}/completed=${completed}`)
+    },
+    addCompletion()
+    {
+      return axios.post('/completion')
+    },
+    
+    findCompletionCount()
+    {
+      return axios.get('/completion')
     }
 }

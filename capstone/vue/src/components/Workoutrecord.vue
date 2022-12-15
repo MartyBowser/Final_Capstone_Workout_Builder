@@ -53,7 +53,20 @@ export default {
              if(response.status == 200)
              {
                  this.getWorkouts();
-                 this.$store.state
+                 workout.addCompletion().then( response =>{
+
+                     if(response.status == 200)
+                     {
+                         workout.findCompletionCount().then(response =>{
+                          if(response.status == 200)
+                          {
+                         this.$store.commit("SET_COMPLETEDCOUNT", response.data)
+                         }
+                          })
+                     }
+                 })
+                 
+                 
              }
          })
 

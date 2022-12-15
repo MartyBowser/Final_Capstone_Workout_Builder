@@ -18,6 +18,7 @@ if(currentToken != null) {
 
 export default new Vuex.Store({
   state: {
+    currentCount:0,
     currentGenerated:[],
     currentHistory:[],
     newGenerated: [],
@@ -30,6 +31,10 @@ export default new Vuex.Store({
     SET_GENERATED(state, data)
     {
       state.newGenerated = data;
+    },
+    SET_COMPLETEDCOUNT(state, data)
+    {
+      state.currentCount = data;
     },
     SET_CURRENTGENERATED(state, data)
     {

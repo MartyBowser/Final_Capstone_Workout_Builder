@@ -29,7 +29,7 @@
 
     <exercise-list class="exercise-list" />
     <div class="workout-history-query" >
-      <p>Great Job!!! you've completed {{$store.state.currentHistory.length}} workouts </p>
+      <p>Great Job!!! you've completed {{$store.state.currentCount}} workouts </p>
           <workout-history />
 
     </div>
