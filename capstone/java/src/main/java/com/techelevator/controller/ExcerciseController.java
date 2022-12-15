@@ -74,6 +74,7 @@ public class ExcerciseController {
         List<Exercise> listOfExercise = new ArrayList<>();
 
         listOfExercise = exerciseDao.findAllGenerate(workoutRequests.getSelectedBodyGroups(), workoutRequests.getTotalTime());
+
         int workoutId = workoutDao.create(LocalDate.now(), workoutRequests.getTotalTime(), userDao.findIdByUsername(principal.getName()));
         for(int i = 0; i< listOfExercise.size(); i++){
             workoutDao.createWorkoutExercise(workoutId, listOfExercise.get(i).getExerciseId());

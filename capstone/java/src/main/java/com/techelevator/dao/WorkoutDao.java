@@ -32,4 +32,5 @@ public interface WorkoutDao {
     void addCompletion();
 
     int findCompletionCount();
+
 }
