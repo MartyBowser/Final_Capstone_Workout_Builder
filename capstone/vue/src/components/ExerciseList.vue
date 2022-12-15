@@ -69,7 +69,7 @@
     <option value="3">45 Minutes</option>
     <option value="4">60 Minutes</option>
     </select>
-    <button disabled v-on:click="generateWorkoutClicked" id="generate-workou"  class="form-button-start-workout" >
+    <button v-on:click="generateWorkoutClicked" v-bind:disabled="canGenerate" class="form-button-start-workout" >
         Generate Workout
       </button>
     </div>
@@ -103,7 +103,10 @@ export default {
     },
     computed: {
 
-     
+     canGenerate()
+     {
+         return this.workoutRequests.selectedBodyGroups.length == 0 || this.workoutRequests.timeNeeded == 0;
+     },
      cardioExercise() {
           return this.$store.state.exercises.filter(
               (exercise) => {

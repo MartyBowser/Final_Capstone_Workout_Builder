@@ -1,5 +1,6 @@
 <template>
   <div >
+      <p>Great Job!!! You've completed {{$store.state.currentCount}} workouts </p>
       <div v-for="currentWorkout in $store.state.currentHistory" v-bind:key="currentWorkout.workoutId">
       <a>Created Date: {{currentWorkout.dateCreated}}   Duration: {{currentWorkout.duration}} </a>
        
