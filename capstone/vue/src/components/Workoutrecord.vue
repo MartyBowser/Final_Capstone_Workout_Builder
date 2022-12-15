@@ -4,7 +4,7 @@
       <div v-for="currentWorkout in $store.state.currentGenerated" v-bind:key="currentWorkout.workoutId">
       <a>Created Date: {{currentWorkout.dateCreated}}   Duration: {{currentWorkout.duration}} </a>
        
-       <a v-on:click.prevent="viewExercises(currentWorkout.workoutId)" href="#">View Exercises
+       <a class= "view-ex-button" v-on:click.prevent="viewExercises(currentWorkout.workoutId)" href="#">View Exercises
      </a>
 
        <div v-if="currentWorkout.workoutId === selectedWorkoutId"><div v-for="exercise in selectedExercises" v-bind:key="exercise.exerciseId">{{exercise.exerciseName}}  Number Of Reps:{{exercise.numberOfReps}}  </div></div>
