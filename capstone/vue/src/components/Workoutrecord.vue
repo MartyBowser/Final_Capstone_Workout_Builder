@@ -4,7 +4,9 @@
       <div v-for="currentWorkout in $store.state.currentGenerated" v-bind:key="currentWorkout.workoutId">
       <a>Created Date: {{currentWorkout.dateCreated}}   Duration: {{currentWorkout.duration}} </a>
        
-       <a v-on:click.prevent="viewExercises(currentWorkout.workoutId)" href="#">View Exercises</a>
+       <a v-on:click.prevent="viewExercises(currentWorkout.workoutId); showForm = !showForm" href="#"><a v-if="showForm === true">{{
+      showForm ? "Hide exercises" : "View exercises"
+    }}</a></a>
 
        <div v-if="currentWorkout.workoutId === selectedWorkoutId"><div v-for="exercise in selectedExercises" v-bind:key="exercise.exerciseId">{{exercise.exerciseName}}  Number Of Reps:{{exercise.numberOfReps}}  </div></div>
       <button v-on:click.prevent="markWorkoutCompleted(currentWorkout)">Mark Completed</button>
@@ -32,7 +34,8 @@ export default {
 
             },
             selectedExercises:[],
-            selectedWorkoutId:0
+            selectedWorkoutId:0,
+            showForm: true,
         }
     },
 

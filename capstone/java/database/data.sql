@@ -32,7 +32,7 @@ VALUES ('1', 'Classic Burpee', 'Step 1: Start with your feet hip-width apart, st
                                 'Step 2: lower your hands to the ground, and hop your legs back into plank position.'||
                                 'Step 3: Immediately hop your legs forward so that your in a crouching position.'||
                                 'Step 4: From here, jump straight into the air.'||
-                                'Step 4: Repeat this sequence.', '60', '0', '3', '2');
+                                'Step 4: Repeat this sequence.', '5', '0', '3', '2');
 
 INSERT INTO exercise (body_group_id, exercise_name, description, expected_time, suggested_weight, number_of_reps, user_id)
 VALUES ('1', 'Jump Squat', ' Step 1: Stand with your feet shoulder-width apart and the toes pointing slightly outward.'||
@@ -43,36 +43,36 @@ INSERT INTO exercise (body_group_id, exercise_name, description, expected_time, 
 VALUES ('1', 'Up Down Plank', 'Step 1: Start in a plank position, with your wrists under your shoulders and your feet hip-width apart.'||
                                'Step 2: Bend your left arm, place your left elbow on the mat and then bend your right arm and place your right elbow on the mat.'||
                                'Step 3: Place your left hand on the mat, straighten your left arm and then place your right hand on the mat and straighten your right arm.'||
-                               'Step 4 Switch sides and repeat this up and down movement until the set is complete.', '60', '0', '3', '2');
+                               'Step 4 Switch sides and repeat this up and down movement until the set is complete.', '5', '0', '3', '2');
 INSERT INTO exercise (body_group_id, exercise_name, description, expected_time, suggested_weight, number_of_reps, user_id)
 VALUES ('1', 'Lateral Bunny Hops', 'Step 1: Start with your feet together.'||
                                     'Step 2: Pretend there is an invisible line at your side.'||
                                     'Step 3: Using your arms for momentum, quickly jump side to side over the line.'||
-                                    'Step 4: Keep your legs close together during this exercise.!', '60', '0', '3', '2');
+                                    'Step 4: Keep your legs close together during this exercise.!', '5', '0', '3', '2');
 INSERT INTO exercise (body_group_id, exercise_name, description, expected_time, suggested_weight, number_of_reps, user_id)
 VALUES ('1', 'Split Lunge Jumps', 'Step 1: Stand with your feet together with soft knees.'||
                                    'Step 2: Get into a lunge position first and then continue with a jump. Land in an opposite lunge (if you began with the right foot forward, land with the left foot forward).'||
                                    'Step 3: Quickly jump back up and into the starting position with your feet together.'||
-                                   'Step 4 Repeat on the other side.', '60', '0', '3', '2');
+                                   'Step 4 Repeat on the other side.', '5', '0', '3', '2');
 INSERT INTO exercise (body_group_id, exercise_name, description, expected_time, suggested_weight, number_of_reps, user_id)
 VALUES ('1', 'Skaters', 'Step 1: Stand with your feet hip-width apart. Knees should be slightly bent.'||
                          'Step 2: Jump to the right with your right foot. Sweep the left foot behind your right leg.'||
                          'Step 3: Tap your right foot with your left hand.'||
                          'Step 4: Alternate sides by jumping to the left with your left foot while the right foot sweeps behind you. Tap your left foot with your right hand.'||
-                         'Step 5: Use your arms to help keep the momentum.', '60', '0', '3', '2');
+                         'Step 5: Use your arms to help keep the momentum.', '5', '0', '3', '2');
 INSERT INTO exercise (body_group_id, exercise_name, description, expected_time, suggested_weight, number_of_reps, user_id)
 VALUES ('1', 'Woodchops', 'Step 1: Start with your hands together towards your right side. Hold them about eye-level so your arms are bent at the elbows.'||
                            'Step 2: Put your weight on your right foot with the left foot slightly raised.'||
                            'Step 3: As if you were holding an axe, chop your arm across your body with bent knees. Transition your weight from your right to left foot, slightly raising your right foot at the end of the exercise.'||
                            'Step 4: You should be in a slight lunge position.'||
                            'Step 5: Bring your arms back to the starting position.'||
-                           'Step 6: Repeat for your left side.!', '60', '0', '3', '2');
+                           'Step 6: Repeat for your left side.!', '5', '0', '3', '2');
 INSERT INTO exercise (body_group_id, exercise_name, description, expected_time, suggested_weight, number_of_reps, user_id)
 VALUES ('1', 'Mountain climbers', 'Step 1: Begin on your hands and knees.'||
                                    'Step 2: Position yourself in a high plank position with your core engaged. Make sure your lower back is not bowed.'||
                                    'Step 3: Bring your right foot up towards your right hand until you reach a lunge position.'||
                                    'Step 4: Quickly jump and switch your feet, so that the left foot is now in front.'||
-                                   'Step 5: Continue this alternating pattern.', '60', '0', '3', '2');
+                                   'Step 5: Continue this alternating pattern.', '5', '0', '3', '2');
 
 
 INSERT INTO exercise (body_group_id, exercise_name, description, expected_time, suggested_weight, number_of_reps, user_id)

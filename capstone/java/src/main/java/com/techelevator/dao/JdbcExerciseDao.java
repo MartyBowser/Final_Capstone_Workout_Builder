@@ -74,7 +74,8 @@ public class JdbcExerciseDao implements ExerciseDao {
     @Override
     public List<Exercise> findAllGenerate(int[] ids, int timeNeeded)
     {
-      ArrayList<ArrayList<Exercise>> generatedList = new ArrayList<>();
+       int numberOfExercises = timeNeeded/5;
+       ArrayList<ArrayList<Exercise>> generatedList = new ArrayList<>();
 
        ArrayList<Exercise> exercises = new ArrayList<>();
 
