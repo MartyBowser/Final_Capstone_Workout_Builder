@@ -136,7 +136,7 @@ export default {
           exercise.edit(this.editingExercise)
           .then((response) => {
               if (response.status == 200) {
-                  this.$router.push({
+                 this.$router.push({
                       path: '/',
                       query: {edit: 'success'}
                   })

@@ -124,7 +124,7 @@ public class JdbcExerciseDao implements ExerciseDao {
         String insertUserSql = "UPDATE exercise SET exercise_name = ?, description = ?, body_group_id = ?, expected_time = ?, suggested_weight = ?, number_of_reps = ?" +
                 "WHERE exercise_id = ?";
 
-        jdbcTemplate.update(insertUserSql, exerciseName, description, bodyGroupId, exerciseId, expectedTime, suggestedWeight, numberOfReps);
+        jdbcTemplate.update(insertUserSql, exerciseName, description, bodyGroupId, expectedTime, suggestedWeight, numberOfReps,exerciseId);
     }
 
     @Override
