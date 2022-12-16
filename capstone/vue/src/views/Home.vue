@@ -5,6 +5,7 @@
     <h1 class="greeting"><img class="homepage" src="https://freesvg.org/img/1545424155.png"> Hi, {{$store.state.user.firstName}}! </h1>
    
     <div class="workout-record-query">
+      <h2 class="record-label">Your Workout Queue:</h2>
     <workout-record/>
     </div>
     <blockquote class="welcome">"Health is a state of body. Wellness is a state of being. Key2Fit is here to guide you into positive wellness. Start today with individual exercises, or build your own custom workout routine."</blockquote>
@@ -28,6 +29,7 @@
     <!-- the 2 buttons bellow need to route to new workout and to workout history, they are NOT routed yet-->
 
     <exercise-list class="exercise-list" />
+
     <div class="workout-history-query" >
      <p>Great Job!!! You've completed {{$store.state.currentCount}} workouts </p>
           <workout-history />

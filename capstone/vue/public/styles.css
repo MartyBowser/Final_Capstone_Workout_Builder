@@ -577,3 +577,25 @@ font-size: 15px;
 .edit-button-exercise{
   color:lightsteelblue;
 }
+.form-register-user{
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 500px;
+  margin: 0 auto 100px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.workout-record-query .record-label {
+  font-size: 24px;
+  align-content: center;
+  margin: 0 auto;
+  text-align: center;
+}
+.exercise-list .history-label {
+  font-size: 24px;
+  align-content: center;
+  margin: 0 auto;
+  text-align: center;
+}
